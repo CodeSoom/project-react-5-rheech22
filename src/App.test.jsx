@@ -46,9 +46,9 @@ describe('App', () => {
 
     expect(queryByLabelText('남')).not.toBeNull();
     expect(queryByLabelText('여')).not.toBeNull();
-    expect(queryByLabelText(/나이/)).not.toBeNull();
-    expect(queryByLabelText('키')).not.toBeNull();
-    expect(queryByLabelText('몸무게')).not.toBeNull();
+    expect(queryByLabelText('만 나이(세)')).not.toBeNull();
+    expect(queryByLabelText('키(cm)')).not.toBeNull();
+    expect(queryByLabelText('몸무게(kg)')).not.toBeNull();
     expect(queryByLabelText('Activity Level')).not.toBeNull();
   });
 

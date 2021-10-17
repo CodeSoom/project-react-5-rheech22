@@ -1,4 +1,13 @@
+import styled from '@emotion/styled';
+
 import CheckBox from './CheckBox';
+
+const Container = styled.div({
+  display: 'flex',
+  justifyContent: 'space-around',
+  width: '6em',
+  marginBottom: '1em',
+});
 
 export default function GenderCheckField({
   gender,
@@ -8,9 +17,7 @@ export default function GenderCheckField({
   const isFemale = gender === 'female';
 
   return (
-    <div>
-      성별
-      {' '}
+    <Container>
       <CheckBox
         label="남"
         name="male"
@@ -23,6 +30,6 @@ export default function GenderCheckField({
         isChecked={isFemale}
         onChange={onChange}
       />
-    </div>
+    </Container>
   );
 }
