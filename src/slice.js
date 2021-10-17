@@ -4,8 +4,7 @@ const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
     bodyStats: {
-      male: false,
-      female: false,
+      gender: '',
       age: 0,
       height: 0,
       weight: 0,
@@ -48,8 +47,7 @@ export function calculateCalories() {
   return async (dispatch, getState) => {
     const {
       bodyStats: {
-        male,
-        female,
+        gender,
         age,
         height,
         weight,
@@ -57,21 +55,15 @@ export function calculateCalories() {
       },
     } = getState();
 
-    if (!age || !height || !weight || !activity || !(male || female)) {
+    if (!age || !height || !weight || !activity || !gender) {
       return;
     }
 
+    const correction = gender === 'male' ? 5 : -161;
     const equation = (10 * weight) + (6.25 * height) - (5 * age);
+    const bmr = Math.round(equation + correction);
+    const tdee = Math.round(bmr * activity);
 
-    if (male) {
-      const bmr = equation + 5;
-      const tdee = bmr * activity;
-      dispatch(setCalories({ bmr, tdee }));
-      return;
-    }
-
-    const bmr = equation - 161;
-    const tdee = bmr * activity;
     dispatch(setCalories({ bmr, tdee }));
   };
 }

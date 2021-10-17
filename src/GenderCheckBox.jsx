@@ -1,20 +1,19 @@
 export default function GenderCheckBox({
-  male,
-  female,
+  gender,
   onChange,
 }) {
+  const isMale = gender === 'male';
+  const isFemale = gender === 'female';
+
   function handleChange(event) {
-    const { target: { name, checked } } = event;
+    const { target: { name: value, checked } } = event;
 
-    if (name === 'male' && checked) {
-      onChange({ name: 'female', value: !checked });
+    if (!checked) {
+      onChange({ name: 'gender', value: '' });
+      return;
     }
 
-    if (name === 'female' && checked) {
-      onChange({ name: 'male', value: !checked });
-    }
-
-    onChange({ name, value: checked });
+    onChange({ name: 'gender', value });
   }
 
   return (
@@ -23,11 +22,11 @@ export default function GenderCheckBox({
       <label htmlFor="input-male">
         남
       </label>
-      <input id="input-male" type="checkbox" name="male" checked={male} onChange={handleChange} />
+      <input id="input-male" type="checkbox" name="male" checked={isMale} onChange={handleChange} />
       <label htmlFor="input-female">
         여
       </label>
-      <input id="input-female" type="checkbox" name="female" checked={female} onChange={handleChange} />
+      <input id="input-female" type="checkbox" name="female" checked={isFemale} onChange={handleChange} />
     </div>
   );
 }
