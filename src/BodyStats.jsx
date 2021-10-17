@@ -1,4 +1,4 @@
-import GenderCheckBox from './GenderCheckBox';
+import GenderCheckField from './GenderCheckField';
 import BodyStatsInput from './BodyStatsInput';
 
 export default function BodyStats({
@@ -7,7 +7,7 @@ export default function BodyStats({
 }) {
   return (
     <div>
-      <GenderCheckBox
+      <GenderCheckField
         gender={gender}
         onChange={onChange}
       />

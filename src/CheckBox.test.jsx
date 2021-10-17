@@ -1,37 +1,29 @@
 import { render, fireEvent } from '@testing-library/react';
 
-import GenderCheckBox from './GenderCheckBox';
+import CheckBox from './CheckBox';
 
-describe('GenderCheckBox', () => {
+describe('CheckBox', () => {
   const handleChange = jest.fn();
 
   it('renders range input', () => {
     const { getByLabelText } = render(
-      <GenderCheckBox
-        gender=""
+      <CheckBox
+        label="남"
+        name="male"
+        isChecked
         onChange={handleChange}
       />,
     );
 
     expect(getByLabelText('남')).not.toBeNull();
-    expect(getByLabelText('여')).not.toBeNull();
-  });
-
-  it('checks a box depends on props', () => {
-    const { getByLabelText } = render(
-      <GenderCheckBox
-        gender="male"
-        onChange={handleChange}
-      />,
-    );
-
-    expect(getByLabelText('남')).toBeChecked();
   });
 
   it('listens change event', () => {
     const { getByLabelText } = render(
-      <GenderCheckBox
-        gender=""
+      <CheckBox
+        label="여"
+        name="female"
+        isChecked={false}
         onChange={handleChange}
       />,
     );
