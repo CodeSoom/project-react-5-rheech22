@@ -16,12 +16,14 @@ describe('App', () => {
 
     useSelector.mockImplementation((selector) => selector({
       bodyStats: {
-        male: false,
-        female: false,
+        gender: '',
         age: 0,
         height: 0,
         weight: 0,
-        activityLevel: 1.2,
+        activity: {
+          level: 1.2,
+          description: '',
+        },
       },
       calories: {
         bmr: 1000,
@@ -47,7 +49,7 @@ describe('App', () => {
     expect(queryByLabelText(/나이/)).not.toBeNull();
     expect(queryByLabelText('키')).not.toBeNull();
     expect(queryByLabelText('몸무게')).not.toBeNull();
-    expect(queryByLabelText('활동량')).not.toBeNull();
+    expect(queryByLabelText('Activity Level')).not.toBeNull();
   });
 
   it('renders calories', () => {

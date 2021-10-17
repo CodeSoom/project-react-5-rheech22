@@ -20,7 +20,10 @@ describe('CalculatorContainer', () => {
         age: 0,
         height: 0,
         weight: 0,
-        activityLevel: 1.2,
+        activity: {
+          level: 1,
+          description: '운동 거의 안함',
+        },
       },
       calories: {
         bmr: 0,
@@ -39,7 +42,7 @@ describe('CalculatorContainer', () => {
     expect(queryByLabelText(/나이/)).not.toBeNull();
     expect(queryByLabelText('키')).not.toBeNull();
     expect(queryByLabelText('몸무게')).not.toBeNull();
-    expect(queryByLabelText('활동량')).not.toBeNull();
+    expect(queryByLabelText('Activity Level')).not.toBeNull();
   });
 
   it('listens change/click events', () => {

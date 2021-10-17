@@ -21,7 +21,10 @@ describe('reducer', () => {
           age: 0,
           height: 0,
           weight: 0,
-          activity: 1.2,
+          activity: {
+            level: 1,
+            description: '운동 거의 안함',
+          },
         },
       };
 
@@ -65,7 +68,10 @@ describe('actions', () => {
           age: 34,
           height: 180,
           weight: 75,
-          activity: 1.2,
+          activity: {
+            level: 1,
+            description: '운동 거의 안함',
+          },
         },
       });
     });

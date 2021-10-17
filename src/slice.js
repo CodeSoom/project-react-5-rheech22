@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { activityDescription } from './utils';
+
 const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
@@ -8,7 +10,10 @@ const { actions, reducer } = createSlice({
       age: 0,
       height: 0,
       weight: 0,
-      activity: 1.2,
+      activity: {
+        level: 1,
+        description: '운동 거의 안함, 주로 앉아서 앉아서 일하거나 재택 근무로 활동량 매우 적음',
+      },
     },
     calories: {
       bmr: null,
@@ -17,6 +22,19 @@ const { actions, reducer } = createSlice({
   },
   reducers: {
     changeBodyStats(state, { payload: { name, value } }) {
+      if (name === 'activity') {
+        return {
+          ...state,
+          bodyStats: {
+            ...state.bodyStats,
+            activity: {
+              level: value,
+              description: activityDescription(value),
+            },
+          },
+        };
+      }
+
       return {
         ...state,
         bodyStats: {
@@ -55,14 +73,18 @@ export function calculateCalories() {
       },
     } = getState();
 
-    if (!age || !height || !weight || !activity || !gender) {
+    if (!age || !height || !weight || !gender) {
       return;
     }
 
     const correction = gender === 'male' ? 5 : -161;
     const equation = (10 * weight) + (6.25 * height) - (5 * age);
     const bmr = Math.round(equation + correction);
-    const tdee = Math.round(bmr * activity);
+
+    const activityNumbers = [1.2, 1.375, 1.55, 1.725, 1.9];
+    const { level } = activity;
+
+    const tdee = Math.round(bmr * activityNumbers[level - 1]);
 
     dispatch(setCalories({ bmr, tdee }));
   };
