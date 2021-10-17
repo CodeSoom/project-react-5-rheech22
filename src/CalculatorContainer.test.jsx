@@ -16,8 +16,7 @@ describe('CalculatorContainer', () => {
 
     useSelector.mockImplementation((selector) => selector({
       bodyStats: {
-        male: false,
-        female: false,
+        gender: '',
         age: 0,
         height: 0,
         weight: 0,
@@ -63,8 +62,8 @@ describe('CalculatorContainer', () => {
     expect(dispatch).toBeCalledWith({
       type: 'application/changeBodyStats',
       payload: {
-        name: 'male',
-        value: true,
+        name: 'gender',
+        value: 'male',
       },
     });
   });

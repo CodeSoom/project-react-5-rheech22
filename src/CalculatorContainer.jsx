@@ -13,7 +13,7 @@ import { get } from './utils';
 export default function CalculatorContainer() {
   const dispatch = useDispatch();
 
-  const { male, female } = useSelector(get('bodyStats'));
+  const { gender } = useSelector(get('bodyStats'));
 
   const handleChangeBodyStats = ({ name, value }) => {
     dispatch(changeBodyStats({ name, value }));
@@ -26,8 +26,7 @@ export default function CalculatorContainer() {
   return (
     <div>
       <BodyStats
-        male={male}
-        female={female}
+        gender={gender}
         onChange={handleChangeBodyStats}
       />
       <ActivityLevel onChange={handleChangeBodyStats} />

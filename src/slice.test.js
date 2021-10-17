@@ -17,8 +17,7 @@ describe('reducer', () => {
     it('changes body stats', () => {
       const initialState = {
         bodyStats: {
-          male: false,
-          female: false,
+          gender: '',
           age: 0,
           height: 0,
           weight: 0,
@@ -62,8 +61,7 @@ describe('actions', () => {
     beforeEach(() => {
       store = mockStore({
         bodyStats: {
-          male: true,
-          female: false,
+          gender: 'male',
           age: 34,
           height: 180,
           weight: 75,

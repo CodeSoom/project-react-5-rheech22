@@ -8,8 +8,7 @@ describe('GenderCheckBox', () => {
   it('renders range input', () => {
     const { getByLabelText } = render(
       <GenderCheckBox
-        male={false}
-        female={false}
+        gender=""
         onChange={handleChange}
       />,
     );
@@ -21,8 +20,7 @@ describe('GenderCheckBox', () => {
   it('checks a box depends on props', () => {
     const { getByLabelText } = render(
       <GenderCheckBox
-        male
-        female={false}
+        gender="male"
         onChange={handleChange}
       />,
     );
@@ -33,8 +31,7 @@ describe('GenderCheckBox', () => {
   it('listens change event', () => {
     const { getByLabelText } = render(
       <GenderCheckBox
-        male
-        female={false}
+        gender=""
         onChange={handleChange}
       />,
     );

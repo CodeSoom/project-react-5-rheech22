@@ -2,15 +2,13 @@ import GenderCheckBox from './GenderCheckBox';
 import BodyStatsInput from './BodyStatsInput';
 
 export default function BodyStats({
-  male,
-  female,
+  gender,
   onChange,
 }) {
   return (
     <div>
       <GenderCheckBox
-        male={male}
-        female={female}
+        gender={gender}
         onChange={onChange}
       />
       <BodyStatsInput
