@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import BodyStatsInput from './BodyStatsInput';
 
-describe('calorieInputs', () => {
+describe('BodyStatsInput', () => {
   const handleChange = jest.fn();
 
   function renderInputField({ label, type, name }) {
@@ -16,7 +16,7 @@ describe('calorieInputs', () => {
     );
   }
 
-  it('renders inputs', () => {
+  it('renders input', () => {
     const props = {
       label: '나이',
       type: 'text',
@@ -25,17 +25,6 @@ describe('calorieInputs', () => {
 
     const { queryByLabelText } = renderInputField(props);
     expect(queryByLabelText(props.label)).not.toBeNull();
-  });
-
-  it('renders datalist for range', () => {
-    const props = {
-      label: '활동량',
-      type: 'range',
-      name: 'activity',
-    };
-
-    const { container } = renderInputField(props);
-    expect(container).toContainHTML('<datalist');
   });
 
   it('listens change event', () => {
@@ -47,7 +36,7 @@ describe('calorieInputs', () => {
 
     const { getByLabelText } = renderInputField(props);
 
-    fireEvent.change(getByLabelText('키'), { target: { value: '180' } });
+    fireEvent.change(getByLabelText('키'), { target: { value: 180 } });
 
     expect(handleChange).toBeCalledWith({ name: 'height', value: '180' });
   });
