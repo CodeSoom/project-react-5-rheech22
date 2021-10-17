@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import BodyStats from './BodyStats';
@@ -9,6 +11,14 @@ import {
 } from './slice';
 
 import { get } from './utils';
+
+const Container = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+});
 
 export default function CalculatorContainer() {
   const dispatch = useDispatch();
@@ -24,7 +34,7 @@ export default function CalculatorContainer() {
   };
 
   return (
-    <div>
+    <Container>
       <BodyStats
         gender={gender}
         onChange={handleChangeBodyStats}
@@ -34,6 +44,6 @@ export default function CalculatorContainer() {
         activity={activity}
       />
       <button type="button" onClick={handleClickButton}>Calculate</button>
-    </div>
+    </Container>
   );
 }

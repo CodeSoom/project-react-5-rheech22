@@ -1,8 +1,14 @@
+import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
 
 import CalculatorContainer from './CalculatorContainer';
 
 import { get } from './utils';
+
+const Title = styled.h1({
+  display: 'flex',
+  justifyContent: 'center',
+});
 
 export default function App() {
   const {
@@ -26,7 +32,7 @@ export default function App() {
 
   return (
     <div>
-      <h1>TDEE</h1>
+      <Title>TDEE</Title>
       <CalculatorContainer />
       <ResultSheet />
     </div>

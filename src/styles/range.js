@@ -1,26 +1,26 @@
 import styled from '@emotion/styled';
 
 export const Range = styled.input({
-  webkitAppearance: 'none',
-  appearance: 'none',
   width: '45%',
   height: '2em',
   borderRadius: '1em',
   background: '#D3D3D3',
-  outline: 'none',
   opacity: '0.7',
+  outline: 'none',
+  webkitAppearance: 'none',
+  appearance: 'none',
   webkitTransition: '.2s',
   transition: 'opacity .2s',
   '&:hover': {
     opacity: '1',
   },
   '&::-webkit-slider-thumb': {
-    webkitAppearance: 'none',
-    appearance: 'none',
     width: '2em',
     height: '2em',
     borderRadius: '50%',
     background: '#FF0000',
+    webkitAppearance: 'none',
+    appearance: 'none',
     cursor: 'pointer',
   },
   '&::-moz-range-thumb': {
@@ -34,18 +34,18 @@ export const Range = styled.input({
 
 export const Ticks = styled.div({
   display: 'flex',
-  width: '45%',
   justifyContent: 'space-between',
+  width: '45%',
   padding: '0 .7em',
   '& p': {
-    position: 'relative',
     display: 'flex',
     justifyContent: 'center',
-    textAlign: 'center',
+    position: 'relative',
     width: '.1em',
+    margin: '0 0 1em 0',
     height: '.5em',
     background: '#D3D3D3',
+    textAlign: 'center',
     lineHeight: '4em',
-    margin: '0 0 1em 0',
   },
 });

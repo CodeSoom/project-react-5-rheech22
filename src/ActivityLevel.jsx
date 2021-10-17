@@ -3,14 +3,14 @@ import styled from '@emotion/styled';
 import { Range, Ticks } from './styles/range';
 
 const Container = styled.div({
-  width: '100%',
-  height: '15em',
   display: 'flex',
   flexDirection: 'column',
+  width: '100%',
+  marginBottom: '3em',
   alignItems: 'center',
-  justifyContent: 'center',
   '& div:first-of-type': {
     display: 'flex',
+    fontSize: '1.5em',
     '& label': {
       marginRight: '.5em',
     },
@@ -18,7 +18,7 @@ const Container = styled.div({
 });
 
 const Description = styled.p({
-  width: '30%',
+  width: '18em',
   height: '3em',
   textAlign: 'center',
   wordBreak: 'keep-all',

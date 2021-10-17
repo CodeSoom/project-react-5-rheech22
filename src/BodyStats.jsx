@@ -1,37 +1,45 @@
+import styled from '@emotion/styled';
+
 import GenderCheckField from './GenderCheckField';
 import BodyStatsInput from './BodyStatsInput';
+
+const Container = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  marginBottom: '1em',
+});
 
 export default function BodyStats({
   gender,
   onChange,
 }) {
   return (
-    <div>
+    <Container>
       <GenderCheckField
         gender={gender}
         onChange={onChange}
       />
       <BodyStatsInput
-        label="나이 만"
+        label="만 나이(세)"
         type="number"
         inputName="age"
-        unit="세"
         onChange={onChange}
       />
       <BodyStatsInput
-        label="키"
+        label="키(cm)"
         type="number"
         inputName="height"
-        unit="cm"
         onChange={onChange}
       />
       <BodyStatsInput
-        label="몸무게"
+        label="몸무게(kg)"
         type="number"
         inputName="weight"
-        unit="kg"
         onChange={onChange}
       />
-    </div>
+    </Container>
   );
 }
