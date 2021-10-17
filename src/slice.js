@@ -6,10 +6,10 @@ const { actions, reducer } = createSlice({
     bodyStats: {
       male: false,
       female: false,
-      age: '',
-      height: '',
-      weight: '',
-      activity: '1.2',
+      age: 0,
+      height: 0,
+      weight: 0,
+      activity: 1.2,
     },
     calories: {
       bmr: null,
@@ -49,12 +49,17 @@ export function calculateCalories() {
     const {
       bodyStats: {
         male,
+        female,
         age,
         height,
         weight,
         activity,
       },
     } = getState();
+
+    if (!age || !height || !weight || !activity || !(male || female)) {
+      return;
+    }
 
     const equation = (10 * weight) + (6.25 * height) - (5 * age);
 

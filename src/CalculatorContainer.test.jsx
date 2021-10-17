@@ -1,12 +1,12 @@
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import App from './App';
+import CalculatorContainer from './CalculatorContainer';
 
 jest.mock('react-redux');
 
-describe('App', () => {
+describe('CalculatorContainer', () => {
   const dispatch = jest.fn();
 
   beforeEach(() => {
@@ -24,22 +24,15 @@ describe('App', () => {
         activityLevel: 1.2,
       },
       calories: {
-        bmr: 1000,
-        tdee: 1500,
+        bmr: 0,
+        tdee: 0,
       },
     }));
   });
 
-  it('renders page title', () => {
-    const { container } = render((
-      <App />
-    ));
-    expect(container).toHaveTextContent('TDEE');
-  });
-
   it('renders inputs', () => {
     const { queryByLabelText } = render((
-      <App />
+      <CalculatorContainer />
     ));
 
     expect(queryByLabelText('남')).not.toBeNull();
@@ -50,12 +43,29 @@ describe('App', () => {
     expect(queryByLabelText('활동량')).not.toBeNull();
   });
 
-  it('renders calories', () => {
-    const { container } = render((
-      <App />
+  it('listens change/click events', () => {
+    const { getByLabelText } = render((
+      <CalculatorContainer />
     ));
 
-    expect(container).toHaveTextContent('BMR: 1000');
-    expect(container).toHaveTextContent('TDEE: 1500');
+    fireEvent.change(getByLabelText(/나이/), { target: { value: 34 } });
+
+    expect(dispatch).toBeCalledWith({
+      type: 'application/changeBodyStats',
+      payload: {
+        name: 'age',
+        value: '34',
+      },
+    });
+
+    fireEvent.click(getByLabelText('남'));
+
+    expect(dispatch).toBeCalledWith({
+      type: 'application/changeBodyStats',
+      payload: {
+        name: 'male',
+        value: true,
+      },
+    });
   });
 });

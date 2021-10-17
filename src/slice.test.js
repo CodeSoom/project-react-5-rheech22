@@ -19,10 +19,10 @@ describe('reducer', () => {
         bodyStats: {
           male: false,
           female: false,
-          age: '',
-          height: '',
-          weight: '',
-          activity: '1.2',
+          age: 0,
+          height: 0,
+          weight: 0,
+          activity: 1.2,
         },
       };
 
@@ -39,18 +39,18 @@ describe('reducer', () => {
     it('changes a field of review', () => {
       const initialState = {
         calories: {
-          bmr: '',
-          tdee: '',
+          bmr: 0,
+          tdee: 0,
         },
       };
 
       const state = reducer(
         initialState,
-        setCalories({ bmr: '123', tdee: '345' }),
+        setCalories({ bmr: 123, tdee: 345 }),
       );
 
-      expect(state.calories.bmr).toBe('123');
-      expect(state.calories.tdee).toBe('345');
+      expect(state.calories.bmr).toBe(123);
+      expect(state.calories.tdee).toBe(345);
     });
   });
 });
@@ -64,10 +64,10 @@ describe('actions', () => {
         bodyStats: {
           male: true,
           female: false,
-          age: '35',
-          height: '180',
-          weight: '75',
-          activity: '1.2',
+          age: 34,
+          height: 180,
+          weight: 75,
+          activity: 1.2,
         },
       });
     });
@@ -79,7 +79,7 @@ describe('actions', () => {
 
       expect(actions[0]).toEqual({
         type: 'application/setCalories',
-        payload: { bmr: 1705, tdee: 2046 },
+        payload: { bmr: 1710, tdee: 2052 },
       });
     });
   });
