@@ -13,7 +13,7 @@ import { get } from './utils';
 export default function CalculatorContainer() {
   const dispatch = useDispatch();
 
-  const { gender } = useSelector(get('bodyStats'));
+  const { gender, activity } = useSelector(get('bodyStats'));
 
   const handleChangeBodyStats = ({ name, value }) => {
     dispatch(changeBodyStats({ name, value }));
@@ -29,7 +29,10 @@ export default function CalculatorContainer() {
         gender={gender}
         onChange={handleChangeBodyStats}
       />
-      <ActivityLevel onChange={handleChangeBodyStats} />
+      <ActivityLevel
+        onChange={handleChangeBodyStats}
+        activity={activity}
+      />
       <button type="button" onClick={handleClickButton}>Calculate</button>
     </div>
   );
