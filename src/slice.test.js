@@ -7,54 +7,111 @@ import reducer, {
   changeBodyStats,
   setCalories,
 } from './slice';
+import { getActivityDescription, getCalories, getGoalNumber } from './utils';
 
 const middlewares = [thunk];
 
 const mockStore = configureStore(middlewares);
 
 describe('reducer', () => {
+  given('previousState', () => ({
+    bodyStats: {
+      gender: '',
+      age: 0,
+      height: 0,
+      weight: 0,
+      activity: given.activity,
+      goalNumber: null,
+    },
+    calories: {
+      bmr: null,
+      tdee: null,
+      result: null,
+    },
+  }));
+
   describe('changeBodyStats', () => {
-    it('changes body stats', () => {
-      const initialState = {
-        bodyStats: {
-          gender: '',
-          age: 0,
-          height: 0,
-          weight: 0,
-          activity: {
-            level: 1,
-            description: '운동 거의 안함',
-          },
-          goalNumber: 0,
-        },
+    it('changes gender', () => {
+      const state = reducer(
+        given.previousState,
+        changeBodyStats({ name: 'gender', value: 'male' }),
+      );
+
+      expect(state.bodyStats.gender).toBe('male');
+    });
+
+    it('changes an age', () => {
+      const state = reducer(
+        given.previousState,
+        changeBodyStats({ name: 'age', value: 24 }),
+      );
+
+      expect(state.bodyStats.age).toBe(24);
+    });
+
+    it('changes a height', () => {
+      const state = reducer(
+        given.previousState,
+        changeBodyStats({ name: 'height', value: 180 }),
+      );
+
+      expect(state.bodyStats.height).toBe(180);
+    });
+
+    it('changes an weight', () => {
+      const state = reducer(
+        given.previousState,
+        changeBodyStats({ name: 'weight', value: 75 }),
+      );
+
+      expect(state.bodyStats.weight).toBe(75);
+    });
+
+    it('changes an activity level', () => {
+      given('activity', () => ({
+        level: 1,
+        description: getActivityDescription(1),
+      }));
+
+      const newValue = {
+        level: 3,
+        description: getActivityDescription(3),
       };
 
       const state = reducer(
-        initialState,
-        changeBodyStats({ name: 'age', value: '24' }),
+        given.previousState,
+        changeBodyStats({ name: 'activity', value: newValue }),
       );
 
-      expect(state.bodyStats.age).toBe('24');
+      expect(state.bodyStats.activity).toEqual(newValue);
+    });
+
+    it('changes an goalNumber', () => {
+      const newValue = getGoalNumber('증량');
+
+      const state = reducer(
+        given.previousState,
+        changeBodyStats({ name: 'goalNumber', value: newValue }),
+      );
+
+      expect(state.bodyStats.goalNumber).toBe(newValue);
     });
   });
 
   describe('setCalories', () => {
-    it('changes a field of review', () => {
-      const initialState = {
-        calories: {
-          bmr: 0,
-          tdee: 0,
-          result: null,
-        },
+    it('sets calories', () => {
+      const newValue = {
+        bmr: 123,
+        tdee: 345,
+        result: 567,
       };
 
       const state = reducer(
-        initialState,
-        setCalories({ bmr: 123, tdee: 345 }),
+        given.previousState,
+        setCalories(newValue),
       );
 
-      expect(state.calories.bmr).toBe(123);
-      expect(state.calories.tdee).toBe(345);
+      expect(state.calories).toEqual(newValue);
     });
   });
 });
@@ -63,30 +120,73 @@ describe('actions', () => {
   let store;
 
   describe('calculateCalories', () => {
-    beforeEach(() => {
-      store = mockStore({
-        bodyStats: {
-          gender: 'male',
-          age: 34,
-          height: 180,
-          weight: 75,
-          activity: {
-            level: 1,
-            description: '운동 거의 안함',
-          },
-          goalNumber: 1,
+    given('previousState', () => ({
+      bodyStats: {
+        gender: given.gender,
+        age: given.age,
+        height: 180,
+        weight: 75,
+        activity: {
+          level: 1,
+          description: getActivityDescription(1),
         },
+        goalNumber: given.goalNumber,
+      },
+    }));
+
+    context('with all inputs', () => {
+      given('gender', () => 'male');
+      given('age', () => 34);
+      given('goalNumber', () => 1.2);
+
+      beforeEach(() => {
+        store = mockStore(given.previousState);
+      });
+
+      it('dispatchs setCalories', async () => {
+        await store.dispatch(calculateCalories());
+
+        const {
+          bodyStats: {
+            gender,
+            height,
+            weight,
+            age,
+            activity,
+            goalNumber,
+          },
+        } = store.getState();
+
+        const { level: activityLevel } = activity;
+
+        const newValue = getCalories({
+          gender, weight, height, age, activityLevel, goalNumber,
+        });
+
+        const actions = store.getActions();
+
+        expect(actions[0]).toEqual({
+          type: 'application/setCalories',
+          payload: newValue,
+        });
       });
     });
 
-    it('dispatchs setCalories', async () => {
-      await store.dispatch(calculateCalories());
+    context('without any inputs', () => {
+      given('gender', () => '');
+      given('age', () => 0);
+      given('goalNumber', () => null);
 
-      const actions = store.getActions();
+      beforeEach(() => {
+        store = mockStore(given.previousState);
+      });
 
-      expect(actions[0]).toEqual({
-        type: 'application/setCalories',
-        payload: { bmr: 1710, tdee: 2052, result: 2052 },
+      it('doesn\'t dispatch setCalories', async () => {
+        await store.dispatch(calculateCalories());
+
+        const actions = store.getActions();
+
+        expect(actions).toEqual([]);
       });
     });
   });
