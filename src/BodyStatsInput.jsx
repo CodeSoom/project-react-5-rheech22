@@ -37,7 +37,12 @@ export default function BodyStatsInput({
       <label htmlFor={id}>
         {label}
       </label>
-      <Input id={id} type={type} name={inputName} onChange={handleChange} />
+      <Input
+        id={id}
+        type={type}
+        name={inputName}
+        onChange={handleChange}
+      />
     </Container>
   );
 }
