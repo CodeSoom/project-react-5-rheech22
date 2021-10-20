@@ -9,7 +9,7 @@ describe('ActivityLevel', () => {
 
   const activity = {
     level: 1,
-    description: '운동 거의 안함',
+    description: getActivityDescription(1),
   };
 
   it('renders range input', () => {
@@ -21,6 +21,18 @@ describe('ActivityLevel', () => {
     );
 
     expect(getByLabelText('Activity Level')).not.toBeNull();
+  });
+
+  it('renders activity level and description', () => {
+    const { container } = render(
+      <ActivityLevel
+        activity={activity}
+        onChange={handleChange}
+      />,
+    );
+
+    expect(container).toHaveTextContent(activity.level);
+    expect(container).toHaveTextContent(activity.description);
   });
 
   it('listens change event', () => {
@@ -40,21 +52,5 @@ describe('ActivityLevel', () => {
         description: getActivityDescription('2'),
       },
     });
-  });
-
-  it('show description depends on activity level', () => {
-    const activityTemp = {
-      level: 2,
-      description: '주 1-2회 운동',
-    };
-
-    const { container } = render(
-      <ActivityLevel
-        activity={activityTemp}
-        onChange={handleChange}
-      />,
-    );
-
-    expect(container).toHaveTextContent(activityTemp.description);
   });
 });

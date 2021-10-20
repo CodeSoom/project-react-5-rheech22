@@ -23,7 +23,8 @@ const Input = styled.input({
 });
 
 export default function BodyStatsInput({
-  label, type, inputName, onChange,
+  label, type,
+  inputName, onChange,
 }) {
   const id = `input-${inputName}`;
 

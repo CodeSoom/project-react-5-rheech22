@@ -2,8 +2,9 @@ import { getGoalNumber } from './utils';
 
 export default function GoalButtons({ onChange }) {
   function handleClick(event) {
-    const { innerText } = event.target;
+    const { target: { innerText } } = event;
     const value = getGoalNumber(innerText);
+
     onChange({ name: 'goalNumber', value });
   }
 

@@ -10,7 +10,7 @@ describe('CheckBox', () => {
       <CheckBox
         label="male"
         name="male"
-        isChecked
+        gender="male"
         onChange={handleChange}
       />,
     );
@@ -18,18 +18,34 @@ describe('CheckBox', () => {
     expect(getByLabelText('male')).not.toBeNull();
   });
 
+  it('check a box by gender prop', () => {
+    const { getByLabelText } = render(
+      <CheckBox
+        label="male"
+        name="male"
+        gender="male"
+        onChange={handleChange}
+      />,
+    );
+
+    expect(getByLabelText('male')).toBeChecked();
+  });
+
   it('listens change event', () => {
     const { getByLabelText } = render(
       <CheckBox
         label="female"
         name="female"
-        isChecked={false}
+        gender="male"
         onChange={handleChange}
       />,
     );
 
     fireEvent.click(getByLabelText('female'));
 
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toBeCalledWith({
+      name: 'gender',
+      value: 'female',
+    });
   });
 });
