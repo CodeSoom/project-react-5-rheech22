@@ -26,8 +26,20 @@ export function getGoalNumber(value) {
   return goalNumbers[value];
 }
 
+export function getGoalText(value) {
+  const goalText = {
+    0.8: '감량',
+    1: '유지',
+    1.2: '증량',
+  };
+
+  return goalText[value];
+}
+
 export function getCalories({
-  gender, weight, height, age, activityLevel, goalNumber,
+  gender, weight,
+  height, age,
+  activityLevel, goalNumber,
 }) {
   const correction = gender === 'male' ? 5 : -161;
   const equation = (10 * weight) + (6.25 * height) - (5 * age);

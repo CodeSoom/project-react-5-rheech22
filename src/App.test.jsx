@@ -40,7 +40,7 @@ describe('App', () => {
     const { container } = render((
       <App />
     ));
-    expect(container).toHaveTextContent('TDEE');
+    expect(container).toHaveTextContent('My Cal');
   });
 
   it('renders inputs', () => {

@@ -1,7 +1,8 @@
 import {
   get,
-  getGoalNumber,
   getActivityDescription,
+  getGoalNumber,
+  getGoalText,
   getCalories,
   checkGender,
 } from './utils';
@@ -34,6 +35,14 @@ test('getGoalNumber', () => {
   expect(getGoalNumber('유지')).toBe(1);
 
   expect(getGoalNumber('감소')).toBeUndefined();
+});
+
+test('getGoalText', () => {
+  expect(getGoalText(0.8)).toBe('감량');
+  expect(getGoalText(1.2)).toBe('증량');
+  expect(getGoalText(1)).toBe('유지');
+
+  expect(getGoalText(2)).toBeUndefined();
 });
 
 test('getCalories', () => {
