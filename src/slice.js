@@ -19,6 +19,7 @@ const { actions, reducer } = createSlice({
     calories: {
       bmr: null,
       tdee: null,
+      result: null,
     },
   },
   reducers: {
@@ -54,13 +55,14 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setCalories(state, { payload: { bmr, tdee } }) {
+    setCalories(state, { payload: { bmr, tdee, result } }) {
       return {
         ...state,
         calories: {
           ...state.calories,
           bmr,
           tdee,
+          result,
         },
       };
     },
@@ -81,6 +83,7 @@ export function calculateCalories() {
         height,
         weight,
         activity,
+        goalNubmer,
       },
     } = getState();
 
@@ -97,7 +100,9 @@ export function calculateCalories() {
 
     const tdee = Math.round(bmr * activityNumbers[level - 1]);
 
-    dispatch(setCalories({ bmr, tdee }));
+    const result = Math.round(tdee * goalNubmer);
+
+    dispatch(setCalories({ bmr, tdee, result }));
   };
 }
 

@@ -44,6 +44,7 @@ describe('reducer', () => {
         calories: {
           bmr: 0,
           tdee: 0,
+          result: null,
         },
       };
 
@@ -73,7 +74,7 @@ describe('actions', () => {
             level: 1,
             description: '운동 거의 안함',
           },
-          goalNubmer: 0,
+          goalNubmer: 1,
         },
       });
     });
@@ -85,7 +86,7 @@ describe('actions', () => {
 
       expect(actions[0]).toEqual({
         type: 'application/setCalories',
-        payload: { bmr: 1710, tdee: 2052 },
+        payload: { bmr: 1710, tdee: 2052, result: 2052 },
       });
     });
   });

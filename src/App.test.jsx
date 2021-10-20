@@ -29,6 +29,7 @@ describe('App', () => {
       calories: {
         bmr: 1000,
         tdee: 1500,
+        result: 2000,
       },
     }));
   });
@@ -60,5 +61,6 @@ describe('App', () => {
 
     expect(container).toHaveTextContent('BMR: 1000');
     expect(container).toHaveTextContent('TDEE: 1500');
+    expect(container).toHaveTextContent('RESULT: 2000');
   });
 });

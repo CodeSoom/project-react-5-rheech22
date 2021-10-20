@@ -14,6 +14,7 @@ export default function App() {
   const {
     bmr,
     tdee,
+    result,
   } = useSelector(get('calories'));
 
   function ResultSheet() {
@@ -26,6 +27,10 @@ export default function App() {
         TDEE:
         {' '}
         {tdee}
+        {' '}
+        RESULT:
+        {' '}
+        {result}
       </div>
     );
   }
