@@ -10,7 +10,7 @@ import {
   calculateCalories,
 } from './slice';
 
-import { get } from './utils';
+import { get, getGoalNumber } from './utils';
 
 const Container = styled.div({
   display: 'flex',
@@ -29,7 +29,8 @@ const Button = styled.button({
 function GoalButtons({ onChange }) {
   function handleClick(event) {
     const { innerText } = event.target;
-    onChange({ name: 'goalNubmer', value: innerText });
+    const value = getGoalNumber(innerText);
+    onChange({ name: 'goalNumber', value });
   }
 
   return (

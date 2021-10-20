@@ -2,6 +2,8 @@ import { render, fireEvent } from '@testing-library/react';
 
 import ActivityLevel from './ActivityLevel';
 
+import { getActivityDescription } from './utils';
+
 describe('ActivityLevel', () => {
   const handleChange = jest.fn();
 
@@ -31,7 +33,13 @@ describe('ActivityLevel', () => {
 
     fireEvent.change(getByLabelText('Activity Level'), { target: { value: 2 } });
 
-    expect(handleChange).toBeCalledWith({ name: 'activity', value: '2' });
+    expect(handleChange).toBeCalledWith({
+      name: 'activity',
+      value: {
+        level: '2',
+        description: getActivityDescription('2'),
+      },
+    });
   });
 
   it('show description depends on activity level', () => {

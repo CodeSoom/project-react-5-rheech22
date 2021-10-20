@@ -25,3 +25,19 @@ export function getGoalNumber(value) {
 
   return goalNumbers[value];
 }
+
+export function getCalories({
+  gender, weight, height, age, activityLevel, goalNumber,
+}) {
+  const correction = gender === 'male' ? 5 : -161;
+  const equation = (10 * weight) + (6.25 * height) - (5 * age);
+  const bmr = Math.round(equation + correction);
+
+  const activityNumbers = [1.2, 1.375, 1.55, 1.725, 1.9];
+
+  const tdee = Math.round(bmr * activityNumbers[activityLevel - 1]);
+
+  const result = Math.round(tdee * goalNumber);
+
+  return { bmr, tdee, result };
+}
