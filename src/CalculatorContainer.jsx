@@ -27,7 +27,11 @@ const Button = styled.button({
 export default function CalculatorContainer() {
   const dispatch = useDispatch();
 
-  const { gender, activity } = useSelector(get('bodyStats'));
+  const {
+    gender,
+    activity,
+    goalNumber,
+  } = useSelector(get('bodyStats'));
 
   const handleChangeBodyStats = ({ name, value }) => {
     dispatch(changeBodyStats({ name, value }));
@@ -48,6 +52,7 @@ export default function CalculatorContainer() {
         activity={activity}
       />
       <GoalButtons
+        goalNumber={goalNumber}
         onChange={handleChangeBodyStats}
       />
       <Button
