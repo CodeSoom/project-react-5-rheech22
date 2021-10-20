@@ -29,6 +29,7 @@ describe('CalculatorContainer', () => {
       calories: {
         bmr: 0,
         tdee: 0,
+        result: null,
       },
     }));
   });
