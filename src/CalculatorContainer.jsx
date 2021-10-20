@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import BodyStats from './BodyStats';
 import ActivityLevel from './ActivityLevel';
+import GoalButtons from './GoalButtons';
 
 import {
   changeBodyStats,
   calculateCalories,
 } from './slice';
 
-import { get, getGoalNumber } from './utils';
+import { get } from './utils';
 
 const Container = styled.div({
   display: 'flex',
@@ -25,25 +26,6 @@ const Button = styled.button({
   fontSize: '1em',
   fontWeight: 400,
 });
-
-function GoalButtons({ onChange }) {
-  function handleClick(event) {
-    const { innerText } = event.target;
-    const value = getGoalNumber(innerText);
-    onChange({ name: 'goalNumber', value });
-  }
-
-  return (
-    <div>
-      <span>목표</span>
-      <div>
-        <button type="button" onClick={handleClick}>감량</button>
-        <button type="button" onClick={handleClick}>유지</button>
-        <button type="button" onClick={handleClick}>증량</button>
-      </div>
-    </div>
-  );
-}
 
 export default function CalculatorContainer() {
   const dispatch = useDispatch();
