@@ -25,6 +25,7 @@ describe('reducer', () => {
             level: 1,
             description: '운동 거의 안함',
           },
+          goalNubmer: 0,
         },
       };
 
@@ -72,6 +73,7 @@ describe('actions', () => {
             level: 1,
             description: '운동 거의 안함',
           },
+          goalNubmer: 0,
         },
       });
     });

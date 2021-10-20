@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { activityDescription } from './utils';
+import { getActivityDescription, getGoalNumber } from './utils';
 
 const { actions, reducer } = createSlice({
   name: 'application',
@@ -14,6 +14,7 @@ const { actions, reducer } = createSlice({
         level: 1,
         description: '운동 거의 안함, 주로 앉아서 앉아서 일하거나 재택 근무로 활동량 매우 적음',
       },
+      goalNubmer: 0,
     },
     calories: {
       bmr: null,
@@ -29,8 +30,18 @@ const { actions, reducer } = createSlice({
             ...state.bodyStats,
             activity: {
               level: value,
-              description: activityDescription(value),
+              description: getActivityDescription(value),
             },
+          },
+        };
+      }
+
+      if (name === 'goalNubmer') {
+        return {
+          ...state,
+          bodyStats: {
+            ...state.bodyStats,
+            goalNubmer: getGoalNumber(value),
           },
         };
       }
