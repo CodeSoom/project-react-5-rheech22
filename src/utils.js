@@ -43,9 +43,5 @@ export function getCalories({
 }
 
 export function checkGender({ gender, name }) {
-  if (gender === name) {
-    return true;
-  }
-
-  return false;
+  return gender === name;
 }

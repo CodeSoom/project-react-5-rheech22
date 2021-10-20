@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import App from './App';
 
+import { getActivityDescription } from './utils';
+
 jest.mock('react-redux');
 
 describe('App', () => {
@@ -21,8 +23,8 @@ describe('App', () => {
         height: 0,
         weight: 0,
         activity: {
-          level: 1.2,
-          description: '',
+          level: 1,
+          description: getActivityDescription(1),
         },
         goalNubmer: 0,
       },

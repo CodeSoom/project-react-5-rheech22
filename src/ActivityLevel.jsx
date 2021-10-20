@@ -26,7 +26,9 @@ const Description = styled.p({
   wordBreak: 'keep-all',
 });
 
-export default function ActivityLevel({ onChange, activity }) {
+export default function ActivityLevel({
+  onChange, activity,
+}) {
   const { level, description } = activity;
 
   const id = 'input-activity';

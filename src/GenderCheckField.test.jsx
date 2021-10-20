@@ -17,7 +17,7 @@ describe('GenderCheckField', () => {
     expect(getByLabelText('여')).not.toBeNull();
   });
 
-  it('checks a box depends on props', () => {
+  it('checks a box depends on gender prop', () => {
     const { getByLabelText } = render(
       <GenderCheckField
         gender="male"

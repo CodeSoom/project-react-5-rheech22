@@ -13,8 +13,7 @@ const Container = styled.div({
 });
 
 export default function BodyStats({
-  gender,
-  onChange,
+  gender, onChange,
 }) {
   return (
     <Container>

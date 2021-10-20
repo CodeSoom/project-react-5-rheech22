@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import CalculatorContainer from './CalculatorContainer';
 
+import { getActivityDescription } from './utils';
+
 jest.mock('react-redux');
 
 describe('CalculatorContainer', () => {
@@ -22,13 +24,13 @@ describe('CalculatorContainer', () => {
         weight: 0,
         activity: {
           level: 1,
-          description: '운동 거의 안함',
+          description: getActivityDescription(1),
         },
         goalNubmer: 0,
       },
       calories: {
-        bmr: 0,
-        tdee: 0,
+        bmr: null,
+        tdee: null,
         result: null,
       },
     }));
@@ -84,7 +86,7 @@ describe('CalculatorContainer', () => {
     });
   });
 
-  it('listens click events to choose goal', () => {
+  it('listens change event to choose user\'s goal', () => {
     const { getByText } = render((
       <CalculatorContainer />
     ));

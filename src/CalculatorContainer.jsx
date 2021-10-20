@@ -6,10 +6,7 @@ import BodyStats from './BodyStats';
 import ActivityLevel from './ActivityLevel';
 import GoalButtons from './GoalButtons';
 
-import {
-  changeBodyStats,
-  calculateCalories,
-} from './slice';
+import { changeBodyStats, calculateCalories } from './slice';
 
 import { get } from './utils';
 
