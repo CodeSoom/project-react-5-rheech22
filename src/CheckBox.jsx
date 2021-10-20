@@ -1,4 +1,10 @@
+import styled from '@emotion/styled';
+
 import { checkGender } from './utils';
+
+const Input = styled.input({
+  cursor: 'pointer',
+});
 
 export default function CheckBox({
   label, name,
@@ -7,7 +13,7 @@ export default function CheckBox({
   const id = `input-${name}`;
   const isChecked = checkGender({ gender, name });
 
-  function handleChange(event) {
+  const handleChange = (event) => {
     const {
       target: {
         name: value, checked,
@@ -20,14 +26,14 @@ export default function CheckBox({
     }
 
     onChange({ name: 'gender', value });
-  }
+  };
 
   return (
     <>
       <label htmlFor={id}>
         {label}
       </label>
-      <input
+      <Input
         id={id}
         type="checkbox"
         name={name}
