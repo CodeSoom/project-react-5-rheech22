@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 
 import { Range, Ticks } from './styles/range';
 
+import { getActivityDescription } from './utils';
+
 const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
@@ -31,7 +33,13 @@ export default function ActivityLevel({ onChange, activity }) {
 
   const handleChange = (event) => {
     const { target: { name, value } } = event;
-    onChange({ name, value });
+    onChange({
+      name,
+      value: {
+        level: value,
+        description: getActivityDescription(value),
+      },
+    });
   };
 
   return (
