@@ -24,6 +24,7 @@ describe('App', () => {
           level: 1.2,
           description: '',
         },
+        goalNubmer: 0,
       },
       calories: {
         bmr: 1000,

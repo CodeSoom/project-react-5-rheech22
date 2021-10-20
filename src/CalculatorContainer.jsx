@@ -20,6 +20,30 @@ const Container = styled.div({
   width: '100%',
 });
 
+const Button = styled.button({
+  background: 'none',
+  fontSize: '1em',
+  fontWeight: 400,
+});
+
+function GoalButtons({ onChange }) {
+  function handleClick(event) {
+    const { innerText } = event.target;
+    onChange({ name: 'goalNubmer', value: innerText });
+  }
+
+  return (
+    <div>
+      <span>목표</span>
+      <div>
+        <button type="button" onClick={handleClick}>감량</button>
+        <button type="button" onClick={handleClick}>유지</button>
+        <button type="button" onClick={handleClick}>증량</button>
+      </div>
+    </div>
+  );
+}
+
 export default function CalculatorContainer() {
   const dispatch = useDispatch();
 
@@ -43,7 +67,10 @@ export default function CalculatorContainer() {
         onChange={handleChangeBodyStats}
         activity={activity}
       />
-      <button type="button" onClick={handleClickButton}>Calculate</button>
+      <GoalButtons
+        onChange={handleChangeBodyStats}
+      />
+      <Button type="button" onClick={handleClickButton}>Click to calculate!</Button>
     </Container>
   );
 }

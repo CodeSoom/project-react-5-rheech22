@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Range = styled.input({
-  width: '45%',
+  width: '25em',
   height: '2em',
   borderRadius: '1em',
   background: '#D3D3D3',
@@ -35,8 +35,8 @@ export const Range = styled.input({
 export const Ticks = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
-  width: '45%',
-  padding: '0 .7em',
+  width: '20em',
+  padding: '0 .3em',
   '& p': {
     display: 'flex',
     justifyContent: 'center',

@@ -8,27 +8,27 @@ describe('CheckBox', () => {
   it('renders range input', () => {
     const { getByLabelText } = render(
       <CheckBox
-        label="남"
+        label="male"
         name="male"
         isChecked
         onChange={handleChange}
       />,
     );
 
-    expect(getByLabelText('남')).not.toBeNull();
+    expect(getByLabelText('male')).not.toBeNull();
   });
 
   it('listens change event', () => {
     const { getByLabelText } = render(
       <CheckBox
-        label="여"
+        label="female"
         name="female"
         isChecked={false}
         onChange={handleChange}
       />,
     );
 
-    fireEvent.click(getByLabelText('여'));
+    fireEvent.click(getByLabelText('female'));
 
     expect(handleChange).toBeCalled();
   });

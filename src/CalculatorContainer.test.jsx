@@ -24,6 +24,7 @@ describe('CalculatorContainer', () => {
           level: 1,
           description: '운동 거의 안함',
         },
+        goalNubmer: 0,
       },
       calories: {
         bmr: 0,
@@ -45,7 +46,18 @@ describe('CalculatorContainer', () => {
     expect(queryByLabelText('Activity Level')).not.toBeNull();
   });
 
-  it('listens change/click events', () => {
+  it('renders buttons', () => {
+    const { getByText } = render((
+      <CalculatorContainer />
+    ));
+
+    expect(getByText('감량')).not.toBeNull();
+    expect(getByText('유지')).not.toBeNull();
+    expect(getByText('증량')).not.toBeNull();
+    expect(getByText('Click to calculate!')).not.toBeNull();
+  });
+
+  it('listens change/click events to choose gender', () => {
     const { getByLabelText } = render((
       <CalculatorContainer />
     ));
@@ -69,5 +81,15 @@ describe('CalculatorContainer', () => {
         value: 'male',
       },
     });
+  });
+
+  it('listens click events to choose goal', () => {
+    const { getByText } = render((
+      <CalculatorContainer />
+    ));
+
+    fireEvent.click(getByText('감량'));
+
+    expect(dispatch).toBeCalled();
   });
 });
