@@ -71,7 +71,12 @@ export default function CalculatorContainer() {
       <GoalButtons
         onChange={handleChangeBodyStats}
       />
-      <Button type="button" onClick={handleClickButton}>Click to calculate!</Button>
+      <Button
+        type="button"
+        onClick={handleClickButton}
+      >
+        Click to calculate!
+      </Button>
     </Container>
   );
 }

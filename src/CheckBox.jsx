@@ -1,10 +1,13 @@
+import { checkGender } from './utils';
+
 export default function CheckBox({
   label,
   name,
-  isChecked,
+  gender,
   onChange,
 }) {
   const id = `input-${name}`;
+  const isChecked = checkGender({ gender, name });
 
   function handleChange(event) {
     const { target: { name: value, checked } } = event;
@@ -22,7 +25,13 @@ export default function CheckBox({
       <label htmlFor={id}>
         {label}
       </label>
-      <input id={id} type="checkbox" name={name} checked={isChecked} onChange={handleChange} />
+      <input
+        id={id}
+        type="checkbox"
+        name={name}
+        checked={isChecked}
+        onChange={handleChange}
+      />
     </>
   );
 }

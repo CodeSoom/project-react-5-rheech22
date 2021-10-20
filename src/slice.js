@@ -14,7 +14,7 @@ const { actions, reducer } = createSlice({
         level: 1,
         description: '운동 거의 안함, 주로 앉아서 앉아서 일하거나 재택 근무로 활동량 매우 적음',
       },
-      goalNumber: 0,
+      goalNumber: null,
     },
     calories: {
       bmr: null,
@@ -64,7 +64,7 @@ export function calculateCalories() {
       },
     } = getState();
 
-    if (!age || !height || !weight || !gender) {
+    if (!age || !height || !weight || !gender || !goalNumber) {
       return;
     }
 
