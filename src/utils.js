@@ -57,3 +57,24 @@ export function getCalories({
 export function checkGender({ gender, name }) {
   return gender === name;
 }
+
+export function getMacros({ name, calories }) {
+  const macroFunctions = {
+    highCarbs: (c) => ({
+      carbs: Math.round((c * 0.5) / 4),
+      protein: Math.round((c * 0.3) / 4),
+      fats: Math.round((c * 0.2) / 9),
+    }),
+    lowCarbs: (c) => ({
+      carbs: Math.round((c * 0.4) / 4),
+      protein: Math.round((c * 0.4) / 4),
+      fats: Math.round((c * 0.2) / 9),
+    }),
+    highFats: (c) => ({
+      carbs: Math.round((c * 0.2) / 4),
+      protein: Math.round((c * 0.2) / 4),
+      fats: Math.round((c * 0.6) / 9),
+    }),
+  };
+  return macroFunctions[name](calories);
+}
