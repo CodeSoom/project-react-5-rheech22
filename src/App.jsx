@@ -1,9 +1,7 @@
 import styled from '@emotion/styled';
-import { useSelector } from 'react-redux';
 
 import CalculatorContainer from './CalculatorContainer';
-
-import { get } from './utils';
+import ResultSheet from './ResultSheet';
 
 const Container = styled.div({
   display: 'flex',
@@ -19,30 +17,6 @@ const Container = styled.div({
 });
 
 export default function App() {
-  const {
-    bmr,
-    tdee,
-    result,
-  } = useSelector(get('calories'));
-
-  function ResultSheet() {
-    return (
-      <div>
-        BMR:
-        {' '}
-        {bmr}
-        {' '}
-        TDEE:
-        {' '}
-        {tdee}
-        {' '}
-        RESULT:
-        {' '}
-        {result}
-      </div>
-    );
-  }
-
   return (
     <Container>
       <h1>My Cal</h1>
