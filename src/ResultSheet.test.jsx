@@ -48,11 +48,10 @@ describe('ResultSheet', () => {
   });
 
   context('with calorie values', () => {
+    given('bmr', () => 1000);
+    given('tdee', () => 1500);
+    given('result', () => 2000);
     it('renders calories', () => {
-      given('bmr', () => 1000);
-      given('tdee', () => 1500);
-      given('result', () => 2000);
-
       const { container } = render((
         <ResultSheet />
       ));
@@ -60,6 +59,14 @@ describe('ResultSheet', () => {
       expect(container).toHaveTextContent('1000');
       expect(container).toHaveTextContent('1500');
       expect(container).toHaveTextContent('2000');
+    });
+
+    it('renders macro nutrition', () => {
+      const { container } = render((
+        <ResultSheet />
+      ));
+
+      expect(container).toHaveTextContent('Macro Nutrition');
     });
   });
 });
