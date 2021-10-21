@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
+
 import { useSelector } from 'react-redux';
-import Calorie from './styles/Calorie';
+
+import Calories from './Calories';
 
 import { get } from './utils';
 
-const Container = styled.div({
+const Container = styled.article({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -12,7 +14,7 @@ const Container = styled.div({
   width: '100%',
 });
 
-const Calories = styled.div({
+const CaloriesSection = styled.section({
   display: 'flex',
   justifyContent: 'space-around',
   width: '100%',
@@ -32,11 +34,20 @@ export default function ResultSheet() {
   return (
     <Container>
       <h1>Result Sheet</h1>
-      <Calories>
-        <Calorie calorie={bmr} />
-        <Calorie calorie={result} />
-        <Calorie calorie={tdee} />
-      </Calories>
+      <CaloriesSection>
+        <Calories
+          name="BMR"
+          value={bmr}
+        />
+        <Calories
+          name="My Calories"
+          value={result}
+        />
+        <Calories
+          name="TDEE"
+          value={tdee}
+        />
+      </CaloriesSection>
     </Container>
   );
 }
