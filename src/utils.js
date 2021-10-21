@@ -58,7 +58,7 @@ export function checkGender({ gender, name }) {
   return gender === name;
 }
 
-export function getMacros({ name, calories }) {
+export function getMacros({ name, value }) {
   const macroFunctions = {
     highCarbs: (c) => ({
       carbs: Math.round((c * 0.5) / 4),
@@ -76,5 +76,5 @@ export function getMacros({ name, calories }) {
       fats: Math.round((c * 0.6) / 9),
     }),
   };
-  return macroFunctions[name](calories);
+  return macroFunctions[name](value);
 }

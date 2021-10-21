@@ -61,12 +61,12 @@ describe('ResultSheet', () => {
       expect(container).toHaveTextContent('2000');
     });
 
-    it('renders macro nutrition', () => {
+    it('renders macro examples', () => {
       const { container } = render((
         <ResultSheet />
       ));
 
-      expect(container).toHaveTextContent('Macro Nutrition');
+      expect(container).toHaveTextContent('Macro Examples');
     });
   });
 });

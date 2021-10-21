@@ -3,15 +3,17 @@ import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
 
 import Calories from './Calories';
+import MacroExample from './MacroExample';
 
-import { get, getMacros } from './utils';
+import { get } from './utils';
 
 const Container = styled.article({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'space-evenly',
   width: '100%',
+  height: '100vh',
 });
 
 const Section = styled.section({
@@ -19,28 +21,6 @@ const Section = styled.section({
   justifyContent: 'space-around',
   width: '100%',
 });
-
-function Nutrition({ name, calories }) {
-  const macros = getMacros({ name, calories });
-  const { carbs, protein, fats } = macros;
-
-  return (
-    <div>
-      <div>
-        {carbs}
-        g
-      </div>
-      <div>
-        {protein}
-        g
-      </div>
-      <div>
-        {fats}
-        g
-      </div>
-    </div>
-  );
-}
 
 export default function ResultSheet() {
   const {
@@ -70,19 +50,19 @@ export default function ResultSheet() {
           value={tdee}
         />
       </Section>
-      <h3>Macro Nutrition</h3>
+      <h3>Macro Examples</h3>
       <Section>
-        <Nutrition
-          name="highCarbs"
-          calories={result}
-        />
-        <Nutrition
+        <MacroExample
           name="lowCarbs"
-          calories={result}
+          value={result}
         />
-        <Nutrition
+        <MacroExample
+          name="highCarbs"
+          value={result}
+        />
+        <MacroExample
           name="highFats"
-          calories={result}
+          value={result}
         />
       </Section>
     </Container>
