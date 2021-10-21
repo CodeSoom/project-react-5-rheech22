@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import calories from './data/calories';
+import caloriesInfo from './data/caloriesInfo';
 
 const Container = styled.div({
   display: 'flex',
@@ -11,13 +11,13 @@ const Container = styled.div({
 });
 
 export default function Calories({ name, value }) {
-  const CALORIES = calories.filter((obj) => obj.title === name)[0];
+  const information = caloriesInfo.filter((info) => info.title === name)[0];
 
   const {
     title,
     subtitle,
     description,
-  } = CALORIES;
+  } = information;
 
   return (
     <Container>

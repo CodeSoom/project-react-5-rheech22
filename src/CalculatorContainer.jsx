@@ -13,9 +13,10 @@ import { get } from './utils';
 const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
+  justifyContent: 'space-evenly',
   alignItems: 'center',
   width: '100%',
+  height: '85vh',
 });
 
 const Button = styled.button({
@@ -25,7 +26,7 @@ const Button = styled.button({
   padding: '1em',
   background: 'none',
   fontSize: '1em',
-  fontWeight: 300,
+  fontWeight: '300',
   boxShadow: 'rgb(31, 193, 27) 0px 0px 0px 1px, rgb(255, 217, 19) 0px 0px 0px 2px, rgb(255, 156, 85) 0px 0px 0px 3px, rgb(255, 85, 85) 0px 0px 0px 4px',
   cursor: 'pointer',
 });

@@ -1,4 +1,4 @@
-const calories = [
+const caloriesInfo = [
   {
     id: 1,
     title: 'BMR',
@@ -22,4 +22,4 @@ const calories = [
   },
 ];
 
-export default calories;
+export default caloriesInfo;

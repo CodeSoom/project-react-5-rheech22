@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import Calories from './Calories';
 
-import calories from './data/calories';
+import caloriesInfo from './data/caloriesInfo';
 
 describe('Calories', () => {
   it('renders contents depends on calories\'s name', () => {
@@ -13,7 +13,7 @@ describe('Calories', () => {
       />,
     );
 
-    const data = calories.filter((obj) => obj.title === 'BMR')[0];
+    const data = caloriesInfo.filter((info) => info.title === 'BMR')[0];
 
     expect(container).toHaveTextContent(data.title);
     expect(container).toHaveTextContent(data.subtitle);
