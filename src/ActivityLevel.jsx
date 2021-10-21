@@ -65,7 +65,7 @@ export default function ActivityLevel({
         min="1"
         max="5"
         step="1"
-        value={activity.level}
+        value={level}
         list="ticks"
       />
       <Ticks id="ticks">
