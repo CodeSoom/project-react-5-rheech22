@@ -61,8 +61,8 @@ describe('App', () => {
       <App />
     ));
 
-    expect(container).toHaveTextContent('BMR: 1000');
-    expect(container).toHaveTextContent('TDEE: 1500');
-    expect(container).toHaveTextContent('RESULT: 2000');
+    expect(container).toHaveTextContent('1000');
+    expect(container).toHaveTextContent('1500');
+    expect(container).toHaveTextContent('2000');
   });
 });
