@@ -22,25 +22,23 @@ describe('ResultSheet', () => {
         },
         goalNubmer: 0,
       },
-      calories: {
-        bmr: given.bmr,
-        tdee: given.tdee,
-        result: given.result,
-      },
+      calories: given.calories,
     }));
   });
 
   context('without calorie values', () => {
-    given('bmr', () => null);
-    given('tdee', () => null);
-    given('result', () => null);
+    given('calories', () => ({
+      bmr: null,
+      tdee: null,
+      result: null,
+    }));
 
     it('renders "Hello"', () => {
       const { container } = render((
         <ResultSheet />
       ));
 
-      expect(container).toHaveTextContent('Hello');
+      expect(container).toHaveTextContent('It needs all input values.');
       expect(container).not.toHaveTextContent('BMR');
       expect(container).not.toHaveTextContent('TDEE');
       expect(container).not.toHaveTextContent('RESULT');
@@ -48,9 +46,12 @@ describe('ResultSheet', () => {
   });
 
   context('with calorie values', () => {
-    given('bmr', () => 1000);
-    given('tdee', () => 1500);
-    given('result', () => 2000);
+    given('calories', () => ({
+      bmr: 1000,
+      tdee: 1500,
+      result: 2000,
+    }));
+
     it('renders calories', () => {
       const { container } = render((
         <ResultSheet />
