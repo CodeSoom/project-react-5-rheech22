@@ -30,7 +30,7 @@ export default function ResultSheet() {
   } = useSelector(get('calories'));
 
   if (!bmr || !tdee || !result) {
-    return 'Hello';
+    return 'It needs all input values.';
   }
 
   return (

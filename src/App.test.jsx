@@ -9,6 +9,8 @@ import { getActivityDescription } from './utils';
 jest.mock('react-redux');
 
 describe('App', () => {
+  window.HTMLElement.prototype.scrollIntoView = jest.fn();
+
   const dispatch = jest.fn();
 
   beforeEach(() => {
