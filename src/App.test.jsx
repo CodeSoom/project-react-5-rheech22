@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react';
 
+import { MemoryRouter } from 'react-router';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import App from './App';
@@ -38,33 +40,27 @@ describe('App', () => {
     }));
   });
 
-  it('renders page title', () => {
-    const { container } = render((
-      <App />
+  function renderApp({ path }) {
+    return render((
+      <MemoryRouter initialEntries={[path]}>
+        <App />
+      </MemoryRouter>
     ));
-    expect(container).toHaveTextContent('My Cal');
+  }
+
+  context('with path /', () => {
+    it('renders the home page', () => {
+      const { container } = renderApp({ path: '/' });
+
+      expect(container).toHaveTextContent('My Cal');
+    });
   });
 
-  it('renders inputs', () => {
-    const { queryByLabelText } = render((
-      <App />
-    ));
+  context('with path /diary', () => {
+    it('renders the diary page', () => {
+      const { container } = renderApp({ path: '/diary' });
 
-    expect(queryByLabelText('남')).not.toBeNull();
-    expect(queryByLabelText('여')).not.toBeNull();
-    expect(queryByLabelText('만 나이')).not.toBeNull();
-    expect(queryByLabelText('키(cm)')).not.toBeNull();
-    expect(queryByLabelText('몸무게(kg)')).not.toBeNull();
-    expect(queryByLabelText('Activity Level')).not.toBeNull();
-  });
-
-  it('renders calories', () => {
-    const { container } = render((
-      <App />
-    ));
-
-    expect(container).toHaveTextContent('1000');
-    expect(container).toHaveTextContent('1500');
-    expect(container).toHaveTextContent('2000');
+      expect(container).toHaveTextContent('식단 페이지');
+    });
   });
 });
