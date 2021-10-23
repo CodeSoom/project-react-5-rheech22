@@ -2,7 +2,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import ActivityLevel from './ActivityLevel';
 
-import { getActivityDescription } from './utils';
+import { getActivityDescription } from '../../utils';
 
 describe('ActivityLevel', () => {
   const handleChange = jest.fn();

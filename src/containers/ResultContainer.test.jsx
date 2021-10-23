@@ -2,13 +2,13 @@ import { render } from '@testing-library/react';
 
 import { useSelector } from 'react-redux';
 
-import ResultSheet from './ResultSheet';
+import ResultContainer from './ResultContainer';
 
-import { getActivityDescription } from './utils';
+import { getActivityDescription } from '../utils';
 
 jest.mock('react-redux');
 
-describe('ResultSheet', () => {
+describe('ResultContainer', () => {
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       bodyStats: {
@@ -35,7 +35,7 @@ describe('ResultSheet', () => {
 
     it('renders "Hello"', () => {
       const { container } = render((
-        <ResultSheet />
+        <ResultContainer />
       ));
 
       expect(container).toHaveTextContent('It needs all input values.');
@@ -54,7 +54,7 @@ describe('ResultSheet', () => {
 
     it('renders calories', () => {
       const { container } = render((
-        <ResultSheet />
+        <ResultContainer />
       ));
 
       expect(container).toHaveTextContent('1000');
@@ -64,7 +64,7 @@ describe('ResultSheet', () => {
 
     it('renders macro examples', () => {
       const { container } = render((
-        <ResultSheet />
+        <ResultContainer />
       ));
 
       expect(container).toHaveTextContent('Macro Examples');

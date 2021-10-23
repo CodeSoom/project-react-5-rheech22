@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import HomePage from './HomePage';
 
-import { getActivityDescription } from './utils';
+import { getActivityDescription } from '../utils';
 
 jest.mock('react-redux');
 

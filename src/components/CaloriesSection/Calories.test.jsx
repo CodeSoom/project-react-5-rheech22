@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import Calories from './Calories';
 
-import caloriesInfo from './data/caloriesInfo';
+import caloriesInfo from '../../data/caloriesInfo';
 
 describe('Calories', () => {
   it('renders contents depends on calories\'s name', () => {

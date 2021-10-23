@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 
 import MacroCharts from './MacroCharts';
 
-import macroInfo from './data/macroInfo';
+import macroInfo from '../../data/macroInfo';
 
-import { getMacros } from './utils';
+import { getMacros } from '../../utils';
 
 const Container = styled.div({
   display: 'flex',

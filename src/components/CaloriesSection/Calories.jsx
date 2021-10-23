@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import caloriesInfo from './data/caloriesInfo';
+import caloriesInfo from '../../data/caloriesInfo';
 
 const Container = styled.div({
   display: 'flex',

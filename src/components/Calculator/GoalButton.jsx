@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { getGoalNumber, getGoalText } from './utils';
+import { getGoalNumber, getGoalText } from '../../utils';
 
 const Button = styled.button(({ active }) => ({
   border: 'none',
