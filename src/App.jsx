@@ -18,10 +18,21 @@ const Container = styled.div({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  '& h1': {
-    padding: '1em 0 0 0',
+  paddingTop: '1em',
+  '& h1, h2, h3': {
+    padding: '0',
     margin: '0',
+  },
+  '& h1': {
     fontSize: '2em',
+    fontWeight: '300',
+  },
+  '& h2': {
+    fontSize: '1.6em',
+    fontWeight: '300',
+  },
+  '& h3': {
+    fontSize: '1.3em',
     fontWeight: '400',
   },
 });
@@ -44,7 +55,7 @@ export default function App() {
   return (
     <Container ref={myRef}>
       <h1>My Cal</h1>
-      <p>나에게 맞는 목표 칼로리를 계산하세요</p>
+      <p>당신의 칼로리를 확인하세요</p>
       <CalculatorContainer />
       <ResultSheet />
     </Container>

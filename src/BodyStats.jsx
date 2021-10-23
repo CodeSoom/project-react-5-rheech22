@@ -9,7 +9,7 @@ const Container = styled.div({
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
-  marginBottom: '1em',
+  marginBottom: '.3em',
 });
 
 export default function BodyStats({
@@ -22,7 +22,7 @@ export default function BodyStats({
         onChange={onChange}
       />
       <BodyStatsInput
-        label="만 나이(세)"
+        label="만 나이"
         type="number"
         inputName="age"
         onChange={onChange}

@@ -20,15 +20,18 @@ const Container = styled.div({
 });
 
 const Button = styled.button({
-  marginBottom: '1em',
   border: 'none',
   borderRadius: '.3em',
   padding: '1em',
   background: 'none',
   fontSize: '1em',
-  fontWeight: '300',
-  boxShadow: 'rgb(31, 193, 27) 0px 0px 0px 1px, rgb(255, 217, 19) 0px 0px 0px 2px, rgb(255, 156, 85) 0px 0px 0px 3px, rgb(255, 85, 85) 0px 0px 0px 4px',
+  fontWeight: '400',
+  boxShadow: 'rgb(46, 204, 113) 0px 0px 0px 1px, rgb(255, 217, 19) 0px 0px 0px 2px, rgb(255, 156, 85) 0px 0px 0px 3px, rgb(255, 85, 85) 0px 0px 0px 4px',
   cursor: 'pointer',
+  '&:hover': {
+    backgroundColor: 'rgb(46, 204, 113)',
+    color: 'white',
+  },
 });
 
 export default function CalculatorContainer() {
@@ -66,7 +69,7 @@ export default function CalculatorContainer() {
         type="button"
         onClick={handleClickButton}
       >
-        Click to calculate!
+        Calculate
       </Button>
     </Container>
   );

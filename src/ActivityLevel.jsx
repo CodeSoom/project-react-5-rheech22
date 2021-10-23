@@ -7,12 +7,13 @@ import { getActivityDescription } from './utils';
 const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
+  marginBottom: '1em',
   width: '100%',
-  marginBottom: '3em',
   alignItems: 'center',
   '& div:first-of-type': {
     display: 'flex',
     fontSize: '1.5em',
+    fontWeight: '300',
     '& label': {
       marginRight: '.5em',
     },

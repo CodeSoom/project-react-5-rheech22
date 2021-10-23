@@ -43,7 +43,7 @@ describe('CalculatorContainer', () => {
 
     expect(queryByLabelText('남')).not.toBeNull();
     expect(queryByLabelText('여')).not.toBeNull();
-    expect(queryByLabelText('만 나이(세)')).not.toBeNull();
+    expect(queryByLabelText('만 나이')).not.toBeNull();
     expect(queryByLabelText('키(cm)')).not.toBeNull();
     expect(queryByLabelText('몸무게(kg)')).not.toBeNull();
     expect(queryByLabelText('Activity Level')).not.toBeNull();
@@ -57,7 +57,7 @@ describe('CalculatorContainer', () => {
     expect(getByText('감량')).not.toBeNull();
     expect(getByText('유지')).not.toBeNull();
     expect(getByText('증량')).not.toBeNull();
-    expect(getByText('Click to calculate!')).not.toBeNull();
+    expect(getByText('Calculate')).not.toBeNull();
   });
 
   it('listens change/click events to choose gender', () => {
