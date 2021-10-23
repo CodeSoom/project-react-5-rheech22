@@ -11,7 +11,7 @@ import store from './store';
 ReactDOM.render(
   (
     <Provider store={store}>
-      <BrowserRouter basename="/project-react-5-rheech22">
+      <BrowserRouter basename={process.env.BASE_URL}>
         <App />
       </BrowserRouter>
     </Provider>
