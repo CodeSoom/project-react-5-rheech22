@@ -1,16 +1,10 @@
 import styled from '@emotion/styled';
 
-import { useDispatch, useSelector } from 'react-redux';
+import BodyStats from './Calculator/BodyStats';
+import ActivityLevel from './Calculator/ActivityLevel';
+import GoalButtons from './Calculator/GoalButtons';
 
-import BodyStats from './BodyStats';
-import ActivityLevel from './ActivityLevel';
-import GoalButtons from './GoalButtons';
-
-import { changeBodyStats, calculateCalories } from './slice';
-
-import { get } from './utils';
-
-const Container = styled.div({
+const Container = styled.section({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-evenly',
@@ -34,40 +28,28 @@ const Button = styled.button({
   },
 });
 
-export default function CalculatorContainer() {
-  const dispatch = useDispatch();
-
-  const {
-    gender,
-    activity,
-    goalNumber,
-  } = useSelector(get('bodyStats'));
-
-  const handleChangeBodyStats = ({ name, value }) => {
-    dispatch(changeBodyStats({ name, value }));
-  };
-
-  const handleClickButton = () => {
-    dispatch(calculateCalories());
-  };
-
+export default function Calculator({
+  gender, activity,
+  goalNumber, onChange,
+  onClick,
+}) {
   return (
     <Container>
       <BodyStats
         gender={gender}
-        onChange={handleChangeBodyStats}
+        onChange={onChange}
       />
       <ActivityLevel
-        onChange={handleChangeBodyStats}
+        onChange={onChange}
         activity={activity}
       />
       <GoalButtons
         goalNumber={goalNumber}
-        onChange={handleChangeBodyStats}
+        onChange={onChange}
       />
       <Button
         type="button"
-        onClick={handleClickButton}
+        onClick={onClick}
       >
         Calculate
       </Button>

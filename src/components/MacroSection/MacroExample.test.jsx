@@ -2,11 +2,11 @@ import { render } from '@testing-library/react';
 
 import MacroExample from './MacroExample';
 
-import macroInfo from './data/macroInfo';
-import { getMacros } from './utils';
+import macroInfo from '../../data/macroInfo';
+import { getMacros } from '../../utils';
 
 describe('MacroExample', () => {
-  it('renders contents depends on given name', () => {
+  it('renders an example title depends on given name', () => {
     const { container } = render(
       <MacroExample
         name="lowCarbs"
@@ -19,7 +19,7 @@ describe('MacroExample', () => {
     expect(container).toHaveTextContent(data.title);
   });
 
-  it('renders macros', () => {
+  it('renders macro values', () => {
     const { container } = render(
       <MacroExample
         name="lowCarbs"

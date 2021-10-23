@@ -8,10 +8,10 @@ import {
 
 import { useSelector } from 'react-redux';
 
-import CalculatorContainer from './CalculatorContainer';
-import ResultSheet from './ResultSheet';
+import CalculatorContainer from '../containers/CalculatorContainer';
+import ResultContainer from '../containers/ResultContainer';
 
-import { get } from './utils';
+import { get } from '../utils';
 
 const Container = styled.div({
   display: 'flex',
@@ -57,7 +57,7 @@ export default function App() {
       <h1>My Cal</h1>
       <p>당신의 칼로리를 확인하세요</p>
       <CalculatorContainer />
-      <ResultSheet />
+      <ResultContainer />
     </Container>
   );
 }

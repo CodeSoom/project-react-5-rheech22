@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import { Range, Ticks } from './styles/range';
+import { Range, Ticks } from '../../styles/range';
 
-import { getActivityDescription } from './utils';
+import { getActivityDescription } from '../../utils';
 
 const Container = styled.div({
   display: 'flex',

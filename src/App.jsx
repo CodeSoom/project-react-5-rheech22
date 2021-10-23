@@ -3,8 +3,8 @@ import {
   Route,
 } from 'react-router-dom';
 
-import HomePage from './HomePage';
-import DiaryPage from './DiaryPage';
+import HomePage from './pages/HomePage';
+import DiaryPage from './pages/DiaryPage';
 
 export default function App() {
   return (

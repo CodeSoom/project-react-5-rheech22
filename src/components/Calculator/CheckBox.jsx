@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { checkGender } from './utils';
+import { checkGender } from '../../utils';
 
 const Input = styled.input({
   cursor: 'pointer',
