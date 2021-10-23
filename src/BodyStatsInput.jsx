@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const Container = styled.div({
   display: 'flex',
   width: '10em',
-  marginBottom: '1em',
+  padding: '.3em',
   '& label': {
     display: 'flex',
     justifyContent: 'center',

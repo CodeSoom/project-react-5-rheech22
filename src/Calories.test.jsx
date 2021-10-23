@@ -17,7 +17,6 @@ describe('Calories', () => {
 
     expect(container).toHaveTextContent(data.title);
     expect(container).toHaveTextContent(data.subtitle);
-    expect(container).toHaveTextContent(data.description);
     expect(container).toHaveTextContent(1111);
   });
 });

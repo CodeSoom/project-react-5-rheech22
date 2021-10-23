@@ -14,6 +14,14 @@ const Container = styled.article({
   justifyContent: 'space-evenly',
   width: '100%',
   height: '100vh',
+  paddingTop: '10vh',
+  '& h2': {
+    marginBottom: '1em',
+    width: '100%',
+    textAlign: 'center',
+    backgroundColor: '#485460',
+    color: 'white',
+  },
 });
 
 const Section = styled.section({
@@ -35,7 +43,6 @@ export default function ResultSheet() {
 
   return (
     <Container>
-      <h2>Result Sheet</h2>
       <Section>
         <Calories
           name="BMR"
@@ -50,7 +57,12 @@ export default function ResultSheet() {
           value={tdee}
         />
       </Section>
-      <h3>Macro Examples</h3>
+      <h2>
+        Macro Examples for
+        {' '}
+        {result}
+        kcal
+      </h2>
       <Section>
         <MacroExample
           name="lowCarbs"

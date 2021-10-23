@@ -7,9 +7,13 @@ const Button = styled.button(({ active }) => ({
   borderRadius: '.7em',
   padding: '2em',
   fontSize: '.5em',
-  background: active ? '#2ecc71' : '#EEE',
-  color: active ? '#EEE' : 'black',
+  background: active ? '#2ecc71' : '#D3D3D3',
+  color: active ? 'white' : 'black',
   cursor: 'pointer',
+  opacity: active ? '1' : '.5',
+  '&:hover': {
+    opacity: '1',
+  },
 }));
 
 export default function GoalButton({ goalNumber, text, onChange }) {
