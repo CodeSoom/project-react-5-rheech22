@@ -13,7 +13,7 @@ const Container = styled.article({
   alignItems: 'center',
   justifyContent: 'space-evenly',
   width: '100%',
-  height: '100vh',
+  height: '100%',
   paddingTop: '10vh',
 });
 
