@@ -34,10 +34,10 @@ describe('reducer', () => {
     it('changes gender', () => {
       const state = reducer(
         given.previousState,
-        changeBodyStats({ name: 'gender', value: 'male' }),
+        changeBodyStats({ name: 'gender', value: '남' }),
       );
 
-      expect(state.bodyStats.gender).toBe('male');
+      expect(state.bodyStats.gender).toBe('남');
     });
 
     it('changes an age', () => {
@@ -135,7 +135,7 @@ describe('actions', () => {
     }));
 
     context('with all inputs', () => {
-      given('gender', () => 'male');
+      given('gender', () => '남');
       given('age', () => 34);
       given('goalNumber', () => 1.2);
 

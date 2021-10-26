@@ -47,7 +47,7 @@ test('getGoalText', () => {
 
 test('getCalories', () => {
   const params = {
-    gender: 'male',
+    gender: '남',
     weight: 75,
     height: 180,
     age: 34,
@@ -64,12 +64,12 @@ test('getCalories', () => {
 
 test('checkGender', () => {
   expect(checkGender({
-    gender: 'male',
-    name: 'male',
+    gender: '남',
+    text: '남',
   })).toBeTruthy();
 
   expect(checkGender({
-    gender: 'female',
-    name: 'male',
+    gender: '여',
+    text: '남',
   })).toBeFalsy();
 });

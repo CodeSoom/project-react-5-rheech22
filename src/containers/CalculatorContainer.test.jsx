@@ -41,8 +41,6 @@ describe('CalculatorContainer', () => {
       <CalculatorContainer />
     ));
 
-    expect(queryByLabelText('남')).not.toBeNull();
-    expect(queryByLabelText('여')).not.toBeNull();
     expect(queryByLabelText('만 나이')).not.toBeNull();
     expect(queryByLabelText('키(cm)')).not.toBeNull();
     expect(queryByLabelText('몸무게(kg)')).not.toBeNull();
@@ -54,6 +52,8 @@ describe('CalculatorContainer', () => {
       <CalculatorContainer />
     ));
 
+    expect(getByText('남')).not.toBeNull();
+    expect(getByText('여')).not.toBeNull();
     expect(getByText('감량')).not.toBeNull();
     expect(getByText('유지')).not.toBeNull();
     expect(getByText('증량')).not.toBeNull();
@@ -61,7 +61,7 @@ describe('CalculatorContainer', () => {
   });
 
   it('listens change/click events to choose gender', () => {
-    const { getByLabelText } = render((
+    const { getByLabelText, getByText } = render((
       <CalculatorContainer />
     ));
 
@@ -75,15 +75,9 @@ describe('CalculatorContainer', () => {
       },
     });
 
-    fireEvent.click(getByLabelText('남'));
+    fireEvent.click(getByText('남'));
 
-    expect(dispatch).toBeCalledWith({
-      type: 'application/changeBodyStats',
-      payload: {
-        name: 'gender',
-        value: 'male',
-      },
-    });
+    expect(dispatch).toBeCalled();
   });
 
   it('listens change event to choose user\'s goal', () => {

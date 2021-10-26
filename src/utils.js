@@ -41,7 +41,7 @@ export function getCalories({
   height, age,
   activityLevel, goalNumber,
 }) {
-  const correction = gender === 'male' ? 5 : -161;
+  const correction = gender === '남' ? 5 : -161;
   const equation = (10 * weight) + (6.25 * height) - (5 * age);
   const bmr = Math.round(equation + correction);
 
@@ -54,8 +54,8 @@ export function getCalories({
   return { bmr, tdee, result };
 }
 
-export function checkGender({ gender, name }) {
-  return gender === name;
+export function checkGender({ gender, text }) {
+  return gender === text;
 }
 
 export function getMacros({ name, value }) {

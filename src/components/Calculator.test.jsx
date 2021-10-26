@@ -17,8 +17,6 @@ describe('Calculator', () => {
       />
     ));
 
-    expect(queryByLabelText('남')).not.toBeNull();
-    expect(queryByLabelText('여')).not.toBeNull();
     expect(queryByLabelText('만 나이')).not.toBeNull();
     expect(queryByLabelText('키(cm)')).not.toBeNull();
     expect(queryByLabelText('몸무게(kg)')).not.toBeNull();
@@ -36,6 +34,8 @@ describe('Calculator', () => {
       />
     ));
 
+    expect(getByText('남')).not.toBeNull();
+    expect(getByText('여')).not.toBeNull();
     expect(getByText('감량')).not.toBeNull();
     expect(getByText('유지')).not.toBeNull();
     expect(getByText('증량')).not.toBeNull();

@@ -15,14 +15,12 @@ export default function GenderCheckField({
   return (
     <Container>
       <CheckBox
-        label="남"
-        name="male"
+        text="남"
         gender={gender}
         onChange={onChange}
       />
       <CheckBox
-        label="여"
-        name="female"
+        text="여"
         gender={gender}
         onChange={onChange}
       />
