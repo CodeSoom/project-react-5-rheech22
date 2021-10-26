@@ -13,7 +13,9 @@ const Container = styled.div({
 });
 
 export default function BodyStats({
-  gender, onChange,
+  gender, age,
+  height, weight,
+  onChange,
 }) {
   return (
     <Container>
@@ -23,20 +25,20 @@ export default function BodyStats({
       />
       <BodyStatsInput
         label="만 나이"
-        type="number"
         inputName="age"
+        inputValue={age}
         onChange={onChange}
       />
       <BodyStatsInput
         label="키(cm)"
-        type="number"
         inputName="height"
+        inputValue={height}
         onChange={onChange}
       />
       <BodyStatsInput
         label="몸무게(kg)"
-        type="number"
         inputName="weight"
+        inputValue={weight}
         onChange={onChange}
       />
     </Container>
