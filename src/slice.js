@@ -17,9 +17,9 @@ const { actions, reducer } = createSlice({
       goalNumber: null,
     },
     calories: {
-      bmr: null,
-      tdee: null,
-      result: null,
+      bmr: 0,
+      tdee: 0,
+      result: 0,
     },
   },
   reducers: {
