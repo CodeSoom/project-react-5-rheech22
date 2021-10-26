@@ -3,49 +3,31 @@ import { render, fireEvent } from '@testing-library/react';
 import CheckBox from './CheckBox';
 
 describe('CheckBox', () => {
-  const handleChange = jest.fn();
+  const handleClick = jest.fn();
 
   it('renders range input', () => {
-    const { getByLabelText } = render(
+    const { getByText } = render(
       <CheckBox
-        label="male"
-        name="male"
-        gender="male"
-        onChange={handleChange}
+        text="남"
+        gender="남"
+        onChange={handleClick}
       />,
     );
 
-    expect(getByLabelText('male')).not.toBeNull();
-  });
-
-  it('check a box by gender prop', () => {
-    const { getByLabelText } = render(
-      <CheckBox
-        label="male"
-        name="male"
-        gender="male"
-        onChange={handleChange}
-      />,
-    );
-
-    expect(getByLabelText('male')).toBeChecked();
+    expect(getByText('남')).not.toBeNull();
   });
 
   it('listens change event', () => {
-    const { getByLabelText } = render(
+    const { getByText } = render(
       <CheckBox
-        label="female"
-        name="female"
-        gender="male"
-        onChange={handleChange}
+        text="여"
+        gender="남"
+        onChange={handleClick}
       />,
     );
 
-    fireEvent.click(getByLabelText('female'));
+    fireEvent.click(getByText('여'));
 
-    expect(handleChange).toBeCalledWith({
-      name: 'gender',
-      value: 'female',
-    });
+    expect(handleClick).toBeCalled();
   });
 });

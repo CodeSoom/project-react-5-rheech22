@@ -2,25 +2,30 @@ import styled from '@emotion/styled';
 
 import { checkGender } from '../../utils';
 
-const Input = styled.input({
+const Button = styled.button(({ active }) => ({
+  border: 'none',
+  borderRadius: '.7em',
+  padding: '2em',
+  fontSize: '.5em',
+  background: active ? '#2ecc71' : '#D3D3D3',
+  color: active ? 'white' : 'black',
   cursor: 'pointer',
-});
+  opacity: active ? '1' : '.5',
+  '&:hover': {
+    opacity: '1',
+  },
+}));
 
 export default function CheckBox({
-  label, name,
-  gender, onChange,
+  text, gender,
+  onChange,
 }) {
-  const id = `input-${name}`;
-  const isChecked = checkGender({ gender, name });
+  const handleClick = (event) => {
+    const { target: { innerText: value } } = event;
 
-  const handleChange = (event) => {
-    const {
-      target: {
-        name: value, checked,
-      },
-    } = event;
+    const isChecked = checkGender({ gender, text });
 
-    if (!checked) {
+    if (isChecked === true) {
       onChange({ name: 'gender', value: '' });
       return;
     }
@@ -30,16 +35,13 @@ export default function CheckBox({
 
   return (
     <>
-      <label htmlFor={id}>
-        {label}
-      </label>
-      <Input
-        id={id}
-        type="checkbox"
-        name={name}
-        checked={isChecked}
-        onChange={handleChange}
-      />
+      <Button
+        type="button"
+        onClick={handleClick}
+        active={gender && gender === text ? 1 : 0}
+      >
+        {text}
+      </Button>
     </>
   );
 }
