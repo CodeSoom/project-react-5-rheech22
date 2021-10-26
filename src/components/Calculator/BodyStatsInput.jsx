@@ -23,14 +23,25 @@ const Input = styled.input({
 });
 
 export default function BodyStatsInput({
-  label, type,
+  label, inputValue,
   inputName, onChange,
 }) {
   const id = `input-${inputName}`;
 
   const handleChange = (event) => {
     const { target: { name, value } } = event;
-    onChange({ name, value });
+    if (value.length > 3) {
+      return;
+    }
+    const newValue = value.replace(/(^0+)/, '');
+    onChange({ name, value: newValue });
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 187 || e.keyCode === 189) {
+      e.preventDefault();
+    }
+    return true;
   };
 
   return (
@@ -40,9 +51,11 @@ export default function BodyStatsInput({
       </label>
       <Input
         id={id}
-        type={type}
+        type="number"
+        value={inputValue}
         name={inputName}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
       />
     </Container>
   );

@@ -7,9 +7,9 @@ const { actions, reducer } = createSlice({
   initialState: {
     bodyStats: {
       gender: '',
-      age: 0,
-      height: 0,
-      weight: 0,
+      age: '',
+      height: '',
+      weight: '',
       activity: {
         level: 1,
         description: getActivityDescription(1),

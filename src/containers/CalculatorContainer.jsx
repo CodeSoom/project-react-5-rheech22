@@ -11,6 +11,9 @@ export default function CalculatorContainer() {
 
   const {
     gender,
+    age,
+    height,
+    weight,
     activity,
     goalNumber,
   } = useSelector(get('bodyStats'));
@@ -27,6 +30,9 @@ export default function CalculatorContainer() {
     <article>
       <Calculator
         gender={gender}
+        age={age}
+        height={height}
+        weight={weight}
         activity={activity}
         goalNumber={goalNumber}
         onChange={handleChangeBodyStats}

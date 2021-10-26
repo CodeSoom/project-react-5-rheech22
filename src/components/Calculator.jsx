@@ -29,14 +29,18 @@ const Button = styled.button({
 });
 
 export default function Calculator({
-  gender, activity,
-  goalNumber, onChange,
-  onClick,
+  gender, age,
+  height, weight,
+  activity, goalNumber,
+  onChange, onClick,
 }) {
   return (
     <Container>
       <BodyStats
         gender={gender}
+        age={age}
+        height={height}
+        weight={weight}
         onChange={onChange}
       />
       <ActivityLevel
