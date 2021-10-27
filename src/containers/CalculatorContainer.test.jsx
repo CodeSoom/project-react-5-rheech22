@@ -57,7 +57,7 @@ describe('CalculatorContainer', () => {
     expect(getByText('감량')).not.toBeNull();
     expect(getByText('유지')).not.toBeNull();
     expect(getByText('증량')).not.toBeNull();
-    expect(getByText('Calculate')).not.toBeNull();
+    expect(getByText('calculate')).not.toBeNull();
   });
 
   it('listens change/click events to choose gender', () => {

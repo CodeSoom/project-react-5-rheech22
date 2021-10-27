@@ -4,27 +4,19 @@ import BodyStats from './Calculator/BodyStats';
 import ActivityLevel from './Calculator/ActivityLevel';
 import GoalButtons from './Calculator/GoalButtons';
 
+import Button from '../styles/button';
+
 const Container = styled.section({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-evenly',
   alignItems: 'center',
-  width: '100%',
-  height: '85vh',
-});
-
-const Button = styled.button({
-  border: 'none',
-  borderRadius: '.3em',
-  padding: '1em',
-  background: 'none',
-  fontSize: '1em',
-  fontWeight: '400',
-  boxShadow: 'rgb(46, 204, 113) 0px 0px 0px 1px, rgb(255, 217, 19) 0px 0px 0px 2px, rgb(255, 156, 85) 0px 0px 0px 3px, rgb(255, 85, 85) 0px 0px 0px 4px',
-  cursor: 'pointer',
-  '&:hover': {
-    backgroundColor: 'rgb(46, 204, 113)',
-    color: 'white',
+  width: '100vw',
+  height: '100vh',
+  '& > p': {
+    marginBottom: '1em',
+    height: '1em',
+    color: '#FFECCC',
+    fontWeight: '500',
   },
 });
 
@@ -33,6 +25,7 @@ export default function Calculator({
   height, weight,
   activity, goalNumber,
   onChange, onClick,
+  calculatorMessage,
 }) {
   return (
     <Container>
@@ -51,11 +44,12 @@ export default function Calculator({
         goalNumber={goalNumber}
         onChange={onChange}
       />
+      <p>{calculatorMessage}</p>
       <Button
         type="button"
         onClick={onClick}
       >
-        Calculate
+        calculate
       </Button>
     </Container>
   );

@@ -4,15 +4,16 @@ import { getGoalNumber, getGoalText } from '../../utils';
 
 const Button = styled.button(({ active }) => ({
   border: 'none',
-  borderRadius: '.7em',
-  padding: '2em',
-  fontSize: '.5em',
-  background: active ? '#2ecc71' : '#D3D3D3',
+  fontSize: '1em',
+  padding: '.5em',
+  borderRadius: '.3em',
+  width: '100%',
+  height: '100%',
+  background: active ? '#A777A1' : '#9CADBC',
   color: active ? 'white' : 'black',
   cursor: 'pointer',
-  opacity: active ? '1' : '.5',
   '&:hover': {
-    opacity: '1',
+    background: active ? '#A777A1' : '#C37B9D',
   },
 }));
 

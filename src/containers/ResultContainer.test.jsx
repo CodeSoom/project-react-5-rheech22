@@ -33,12 +33,11 @@ describe('ResultContainer', () => {
       result: null,
     }));
 
-    it('renders "Hello"', () => {
+    it('doesn\'t render result', () => {
       const { container } = render((
         <ResultContainer />
       ));
 
-      expect(container).toHaveTextContent('It needs all input values.');
       expect(container).not.toHaveTextContent('BMR');
       expect(container).not.toHaveTextContent('TDEE');
       expect(container).not.toHaveTextContent('RESULT');

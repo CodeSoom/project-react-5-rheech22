@@ -5,6 +5,8 @@ import MacroExample from './MacroSection/MacroExample';
 const Container = styled.section({
   display: 'flex',
   flexDirection: 'column',
+  width: '100%',
+  height: '100%',
   '& h2': {
     marginBottom: '1em',
     width: '100%',
