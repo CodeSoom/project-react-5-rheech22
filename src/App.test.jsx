@@ -52,7 +52,7 @@ describe('App', () => {
     it('renders the home page', () => {
       const { container } = renderApp({ path: '/' });
 
-      expect(container).toHaveTextContent('My Cal');
+      expect(container).toHaveTextContent('CalCal');
     });
   });
 

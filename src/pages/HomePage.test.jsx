@@ -42,7 +42,7 @@ describe('HomePage', () => {
     const { container } = render((
       <HomePage />
     ));
-    expect(container).toHaveTextContent('My Cal');
+    expect(container).toHaveTextContent('CalCal');
   });
 
   it('renders inputs', () => {

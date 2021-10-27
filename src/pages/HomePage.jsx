@@ -10,7 +10,8 @@ import { useSelector } from 'react-redux';
 
 import CalculatorContainer from '../containers/CalculatorContainer';
 import ResultContainer from '../containers/ResultContainer';
-import Curve from '../components/Curve';
+
+import CurveTop from '../components/CurveTop';
 
 import { get } from '../utils';
 
@@ -29,18 +30,18 @@ const Container = styled.div({
     padding: '0',
     margin: '0',
   },
-  '& > h1': {
+  '& >h1': {
     zIndex: '5',
     color: '#FFECCC',
     fontSize: '5em',
     fontWeight: '500',
     fontFamily: '"Galada", cursive',
   },
-  '& h2': {
+  '& > h2': {
     fontSize: '1.6em',
     fontWeight: '300',
   },
-  '& h3': {
+  '& > h3': {
     fontSize: '1.3em',
     fontWeight: '400',
   },
@@ -69,7 +70,7 @@ export default function HomePage() {
 
   return (
     <Container ref={myRef}>
-      <Curve />
+      <CurveTop />
       <h1>CalCal</h1>
       <p>당신의 칼로리를 확인하세요</p>
       <CalculatorContainer />

@@ -1,18 +1,18 @@
 import styled from '@emotion/styled';
 
-const Cruve = styled.div({
+const CurveMid = styled.div({
   position: 'absolute',
-  top: '0',
+  bottom: '0',
   left: '0',
   width: '100%',
   overflow: 'hidden',
   lineHeight: '0',
-
+  zIndex: '1',
   '& svg': {
     position: 'relative',
     display: 'block',
-    width: 'calc(126% + 1.3px)',
-    height: '172px',
+    width: 'calc(120% + 1.5px)',
+    height: '300px',
   },
 
   '& path': {
@@ -20,4 +20,4 @@ const Cruve = styled.div({
   },
 });
 
-export default Cruve;
+export default CurveMid;
