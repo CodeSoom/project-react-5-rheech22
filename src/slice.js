@@ -16,6 +16,7 @@ const { actions, reducer } = createSlice({
       },
       goalNumber: null,
     },
+    calculatorMessage: '',
     calories: {
       bmr: 0,
       tdee: 0,
@@ -43,12 +44,19 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    setCalculatorMessage(state, { payload: text }) {
+      return {
+        ...state,
+        calculatorMessage: text,
+      };
+    },
   },
 });
 
 export const {
   changeBodyStats,
   setCalories,
+  setCalculatorMessage,
 } = actions;
 
 export function calculateCalories() {

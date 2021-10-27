@@ -19,7 +19,7 @@ export const Range = styled.input({
     width: '2em',
     height: '2em',
     borderRadius: '50%',
-    background: '#2ecc71',
+    background: '#C37B9D',
     webkitAppearance: 'none',
     appearance: 'none',
   },

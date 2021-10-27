@@ -7,7 +7,7 @@ import { getActivityDescription } from '../../utils';
 const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  marginBottom: '1em',
+  marginBottom: '3em',
   width: '100%',
   alignItems: 'center',
   '& div:first-of-type': {
@@ -25,6 +25,7 @@ const Description = styled.p({
   height: '3em',
   textAlign: 'center',
   wordBreak: 'keep-all',
+  fontWeight: '400',
 });
 
 export default function ActivityLevel({

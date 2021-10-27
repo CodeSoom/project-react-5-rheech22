@@ -2,20 +2,28 @@ import styled from '@emotion/styled';
 
 const Container = styled.div({
   display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '.5em',
   width: '10em',
-  padding: '.3em',
+  height: '3em',
   '& label': {
     display: 'flex',
-    justifyContent: 'center',
-    width: '5em',
+    justifyContent: 'start',
+    fontSize: '.3em',
+    marginBottom: '.3em',
+    width: '100%',
   },
 });
 
 const Input = styled.input({
-  width: '5em',
+  width: '100%',
+  height: '100%',
+  outline: 'none',
   border: 'none',
+  borderRadius: '.2em',
   borderBottom: '1px solid black',
-  textAlign: 'center',
+  paddingLeft: '.5em',
+  backgroundColor: '#FFECCC',
   '&::-webkit-inner-spin-button': {
     margin: '0',
     appearance: 'none',
@@ -27,6 +35,7 @@ export default function BodyStatsInput({
   inputName, onChange,
 }) {
   const id = `input-${inputName}`;
+  const placeHolder = `your ${inputName}`;
 
   const handleChange = (event) => {
     const { target: { name, value } } = event;
@@ -54,6 +63,7 @@ export default function BodyStatsInput({
         type="number"
         value={inputValue}
         name={inputName}
+        placeholder={placeHolder}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />

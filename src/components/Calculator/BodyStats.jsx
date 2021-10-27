@@ -6,10 +6,9 @@ import BodyStatsInput from './BodyStatsInput';
 const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
-  marginBottom: '.3em',
+  marginBottom: '1em',
 });
 
 export default function BodyStats({

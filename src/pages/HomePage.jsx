@@ -21,8 +21,8 @@ const Container = styled.div({
   justifyContent: 'center',
   paddingTop: '1em',
   position: 'relative',
-  width: '100%',
-  height: '100%',
+  width: 'fit-content',
+  height: 'fit-content',
   backgroundImage: 'linear-gradient(to right, #0f2b70, #1b3472, #253c73, #304573, #3b4d73, #3a5476, #3b5b78, #3f627a, #37697d, #31707e, #30777c, #367d78)',
   color: 'white',
   '& h1, h2, h3': {
@@ -48,10 +48,11 @@ const Container = styled.div({
     fontSize: '.5em',
     fontWeight: '400',
     marginTop: '-5em',
+    marginBottom: '5em',
   },
 });
 
-export default function App() {
+export default function HomePage() {
   const { result } = useSelector(get('calories'));
 
   const myRef = useRef(null);

@@ -15,8 +15,8 @@ const Container = styled.div({
     height: '1em',
   },
   '& p': {
-    padding: '2vh',
-    fontSize: '1vh',
+    padding: '2em',
+    fontSize: '.5em',
     fontWeight: '400',
     textAlign: 'center',
     wordBreak: 'keep-all',

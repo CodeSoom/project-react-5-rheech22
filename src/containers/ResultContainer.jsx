@@ -12,8 +12,8 @@ const Container = styled.article({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'space-evenly',
-  width: '100%',
-  height: '100%',
+  width: '100vw',
+  height: '130vh',
   paddingTop: '10vh',
 });
 
@@ -25,7 +25,10 @@ export default function ResultContainer() {
   } = useSelector(get('calories'));
 
   if (!bmr || !tdee || !result) {
-    return 'It needs all input values.';
+    return (
+      <>
+      </>
+    );
   }
 
   return (
