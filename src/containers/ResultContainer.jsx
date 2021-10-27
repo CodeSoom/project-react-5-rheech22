@@ -5,16 +5,20 @@ import { useSelector } from 'react-redux';
 import CaloriesSection from '../components/CaloriesSection';
 import MacroSection from '../components/MacroSection';
 
+import CurveTop from '../components/CurveTop';
+
 import { get } from '../utils';
 
 const Container = styled.article({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'space-evenly',
+  position: 'relative',
+  paddingTop: '10em',
   width: '100vw',
-  height: '130vh',
-  paddingTop: '10vh',
+  height: '150vh',
+  background: '#3F627A',
+  color: 'black',
 });
 
 export default function ResultContainer() {
@@ -33,6 +37,7 @@ export default function ResultContainer() {
 
   return (
     <Container>
+      <CurveTop />
       <CaloriesSection
         bmr={bmr}
         tdee={tdee}

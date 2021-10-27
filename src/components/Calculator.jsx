@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import BodyStats from './Calculator/BodyStats';
 import ActivityLevel from './Calculator/ActivityLevel';
 import GoalButtons from './Calculator/GoalButtons';
+import CurveMid from './CurveMid';
 
 import Button from '../styles/button';
 
@@ -10,8 +11,10 @@ const Container = styled.section({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  position: 'relative',
   width: '100vw',
   height: '100vh',
+  zIndex: '10',
   '& > p': {
     marginBottom: '1em',
     height: '1em',
@@ -51,6 +54,7 @@ export default function Calculator({
       >
         calculate
       </Button>
+      <CurveMid />
     </Container>
   );
 }

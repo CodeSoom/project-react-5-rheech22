@@ -6,32 +6,39 @@ const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  width: '30%',
-  '& span:first-of-type': {
+  fontWeight: '400',
+  opacity: '.8',
+  cursor: 'pointer',
+  '& > h2': {
     fontSize: '1.5em',
-    fontWeight: '600',
+    fontWeight: '400',
   },
-  '& span:last-of-type': {
-    marginBottom: '.5em',
-  },
-  '& div': {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '15vh',
-    height: '15vh',
-    borderRadius: '50%',
+  '& > h3': {
     fontSize: '1em',
-    backgroundColor: '#c23616',
-    color: 'white',
+    fontWeight: '400',
+  },
+  '&> span': {
+    fontSize: '3em',
+    marginTop: '1em',
+    color: '#3F627A',
   },
   '& p': {
-    padding: '1vh',
-    fontSize: '1vh',
-    fontWeight: '400',
+    display: 'none',
+    fontSize: '.5em',
+    padding: '1em',
     textAlign: 'center',
     wordBreak: 'keep-all',
     lineHeight: '3vh',
+  },
+  '&:hover': {
+    opacity: '1',
+    zIndex: '3',
+  },
+  '&:hover > p': {
+    display: 'block',
+  },
+  '&:hover > span': {
+    display: 'none',
   },
 });
 
@@ -46,14 +53,12 @@ export default function Calories({ name, value }) {
 
   return (
     <Container>
-      <span>{title}</span>
-      <span>{subtitle}</span>
-      <div>
-        <span>
-          {value}
-          kcal
-        </span>
-      </div>
+      <h2>{title}</h2>
+      <h3>{subtitle}</h3>
+      <span>
+        {value}
+        kcal
+      </span>
       <p>{description}</p>
     </Container>
   );

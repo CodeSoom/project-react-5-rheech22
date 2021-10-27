@@ -7,6 +7,7 @@ const Container = styled.div({
   alignItems: 'center',
   width: '20em',
   marginBottom: '1em',
+  zIndex: '5',
   '& > h3': {
     marginBottom: '.5em',
     fontWeight: '300',
