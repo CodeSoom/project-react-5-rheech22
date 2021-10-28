@@ -6,6 +6,12 @@ const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  '& > svg': {
+    height: '10em',
+  },
+  '& > span': {
+    fontWeight: '400',
+  },
 });
 
 export default function MacroChart({
@@ -29,6 +35,7 @@ export default function MacroChart({
         labelPosition={0}
         animate
         animationDuration={3000}
+        viewBoxSize={[100, 100]}
       />
       <span>
         {text}

@@ -5,15 +5,16 @@ import Calories from './CaloriesSection/Calories';
 const Container = styled.section({
   display: 'grid',
   gridTemplateAreas: '"h h h" "c1 c2 c3" "p p p"',
-  marginBottom: '10em',
-  height: '100vh',
+  marginBottom: '1em',
   '& h1': {
     gridArea: 'h',
+    height: '3em',
     fontSize: '3em',
     fontFamily: '"Galada", cursive',
     textAlign: 'center',
     width: '100%',
     zIndex: '5',
+    color: 'black',
   },
   '& > div': {
     borderRadius: '50%',
@@ -37,11 +38,32 @@ const Container = styled.section({
     transform: 'translate(-3em)',
   },
   '& > p': {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     gridArea: 'p',
-    paddingTop: '1em',
+    height: '5em',
     textAlign: 'center',
     color: 'white',
     textDecoration: 'underline',
+  },
+  '@media (max-width: 600px)': {
+    gridTemplateAreas: '"h" "c1" "c2" "c3" "p"',
+    '& h1': {
+      fontSize: '2em',
+    },
+    '& >div:first-of-type': {
+      transform: 'none',
+    },
+    '& >div:nth-of-type(2)': {
+      transform: 'translate(0, -3em)',
+    },
+    '& >div:nth-of-type(3)': {
+      transform: 'translate(0, -6em)',
+    },
+    '& > p': {
+      marginTop: '-5em',
+    },
   },
 });
 

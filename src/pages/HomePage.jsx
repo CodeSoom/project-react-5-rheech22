@@ -60,7 +60,7 @@ export default function HomePage() {
 
   const scrollToBottom = useCallback(() => {
     if (result) {
-      myRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      myRef.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
     }
   }, [result]);
 
