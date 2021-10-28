@@ -11,7 +11,7 @@ describe('MacroSection', () => {
     ));
 
     expect(container).toHaveTextContent('저탄수 고단백');
-    expect(container).toHaveTextContent('고탄수 고단백');
+    expect(container).toHaveTextContent('고단백');
     expect(container).toHaveTextContent('저탄수 고지방');
   });
 });

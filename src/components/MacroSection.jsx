@@ -5,19 +5,18 @@ import MacroExample from './MacroSection/MacroExample';
 const Container = styled.section({
   display: 'flex',
   flexDirection: 'column',
-  width: '100%',
-  height: '100%',
+  color: 'white',
   '& h2': {
+    fontSize: '2em',
+    fontWeight: '600',
     marginBottom: '1em',
     width: '100%',
     textAlign: 'center',
-    backgroundColor: '#485460',
     color: 'white',
   },
-  '& div': {
+  '& > div': {
     display: 'flex',
-    justifyContent: 'space-around',
-    width: '100%',
+    flexDirection: 'column',
   },
 });
 
@@ -25,18 +24,18 @@ export default function MacroSection({ result }) {
   return (
     <Container>
       <h2>
-        Macro Examples for
+        Macro Examples of
         {' '}
         {result}
         kcal
       </h2>
       <div>
         <MacroExample
-          name="lowCarbs"
+          name="highCarbs"
           value={result}
         />
         <MacroExample
-          name="highCarbs"
+          name="lowCarbs"
           value={result}
         />
         <MacroExample

@@ -12,23 +12,25 @@ const Container = styled.div({
   '& > h2': {
     fontSize: '1.5em',
     fontWeight: '400',
+    color: 'black',
   },
   '& > h3': {
     fontSize: '1em',
     fontWeight: '400',
+    color: 'black',
   },
   '&> span': {
     fontSize: '3em',
     marginTop: '1em',
-    color: '#3F627A',
   },
   '& p': {
     display: 'none',
-    fontSize: '.5em',
+    fontSize: '1em',
     padding: '1em',
     textAlign: 'center',
     wordBreak: 'keep-all',
-    lineHeight: '3vh',
+    lineHeight: '1.2em',
+    color: 'black',
   },
   '&:hover': {
     opacity: '1',

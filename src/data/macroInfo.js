@@ -2,8 +2,8 @@ const macroInfo = [
   {
     id: 1,
     name: 'highCarbs',
-    title: '고탄수 고단백',
-    subtitle: '(recomended)',
+    title: '고단백',
+    subtitle: '★',
     description: `탄수화물의 섭취는 운동 수행과 회복력 향상에 필수요소입니다.
                   한국영양학회는 탄수화물 섭취의 비율을 55~60%로 권고하고 있습니다.
                   그 사실을 참고하면, 이 구성의 탄수화물 비율이 결코 높다고 할 수 없습니다.
