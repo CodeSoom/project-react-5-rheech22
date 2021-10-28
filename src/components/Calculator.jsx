@@ -13,7 +13,7 @@ const Container = styled.section({
   alignItems: 'center',
   position: 'relative',
   width: '100vw',
-  height: '100vh',
+  height: '100vmax',
   zIndex: '10',
   '& > p': {
     marginBottom: '1em',

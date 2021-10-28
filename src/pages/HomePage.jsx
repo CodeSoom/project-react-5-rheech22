@@ -1,19 +1,9 @@
 import styled from '@emotion/styled';
 
-import {
-  useCallback,
-  useEffect,
-  useRef,
-} from 'react';
-
-import { useSelector } from 'react-redux';
-
 import CalculatorContainer from '../containers/CalculatorContainer';
 import ResultContainer from '../containers/ResultContainer';
 
 import CurveTop from '../components/CurveTop';
-
-import { get } from '../utils';
 
 const Container = styled.div({
   display: 'flex',
@@ -23,6 +13,7 @@ const Container = styled.div({
   paddingTop: '1em',
   position: 'relative',
   width: 'fit-content',
+  minWidth: '375px',
   height: 'fit-content',
   backgroundImage: 'linear-gradient(to right, #0f2b70, #1b3472, #253c73, #304573, #3b4d73, #3a5476, #3b5b78, #3f627a, #37697d, #31707e, #30777c, #367d78)',
   color: 'white',
@@ -54,22 +45,8 @@ const Container = styled.div({
 });
 
 export default function HomePage() {
-  const { result } = useSelector(get('calories'));
-
-  const myRef = useRef(null);
-
-  const scrollToBottom = useCallback(() => {
-    if (result) {
-      myRef.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-    }
-  }, [result]);
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [scrollToBottom]);
-
   return (
-    <Container ref={myRef}>
+    <Container>
       <CurveTop />
       <h1>CalCal</h1>
       <p>당신의 칼로리를 확인하세요</p>
