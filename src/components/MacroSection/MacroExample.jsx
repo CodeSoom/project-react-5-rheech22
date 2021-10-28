@@ -15,6 +15,10 @@ const Container = styled.div({
   '@media (max-width: 600px)': {
     '&': {
       gridTemplateAreas: '"h" "c" "p"',
+      maxWidth: '375px',
+    },
+    '&> p': {
+      maxWidth: '375px',
     },
   },
 
@@ -34,7 +38,7 @@ const Container = styled.div({
     fontSize: '1em',
     fontWeight: '400',
     textAlign: 'justify',
-    lineHeight: '3vh',
+    lineHeight: '3em',
     backgroundColor: '#384955',
   },
 

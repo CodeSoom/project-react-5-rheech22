@@ -10,6 +10,8 @@ jest.mock('react-redux');
 
 describe('ResultContainer', () => {
   beforeEach(() => {
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
+
     useSelector.mockImplementation((selector) => selector({
       bodyStats: {
         gender: '',

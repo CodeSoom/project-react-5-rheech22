@@ -1,5 +1,11 @@
 import styled from '@emotion/styled';
 
+import {
+  useCallback,
+  useEffect,
+  useRef,
+} from 'react';
+
 import { useSelector } from 'react-redux';
 
 import CaloriesSection from '../components/CaloriesSection';
@@ -28,6 +34,18 @@ export default function ResultContainer() {
     result,
   } = useSelector(get('calories'));
 
+  const myRef = useRef(null);
+
+  const scrollToBottom = useCallback(() => {
+    if (result) {
+      myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
+    }
+  }, [result]);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [scrollToBottom]);
+
   if (!bmr || !tdee || !result) {
     return (
       <>
@@ -36,7 +54,7 @@ export default function ResultContainer() {
   }
 
   return (
-    <Container>
+    <Container ref={myRef}>
       <CurveTop />
       <CaloriesSection
         bmr={bmr}
