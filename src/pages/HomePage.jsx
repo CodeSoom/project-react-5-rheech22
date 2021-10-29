@@ -13,7 +13,6 @@ const Container = styled.div({
   paddingTop: '1em',
   position: 'relative',
   width: '100%',
-  // minWidth: '375px',
   height: 'fit-content',
   backgroundImage: 'linear-gradient(to right, #0f2b70, #1b3472, #253c73, #304573, #3b4d73, #3a5476, #3b5b78, #3f627a, #37697d, #31707e, #30777c, #367d78)',
   color: 'white',

@@ -18,9 +18,9 @@ const Container = styled.section({
   },
   '& > div': {
     borderRadius: '50%',
-    padding: '3em 2em',
-    width: '20em',
-    height: '20em',
+    padding: '3em 0',
+    width: '19em',
+    height: '19em',
   },
   '& >div:first-of-type': {
     gridArea: 'c1',
