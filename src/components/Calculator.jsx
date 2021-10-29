@@ -12,8 +12,8 @@ const Container = styled.section({
   flexDirection: 'column',
   alignItems: 'center',
   position: 'relative',
-  width: '100vw',
-  height: '100vmax',
+  width: '100%',
+  height: '100vh',
   zIndex: '10',
   '& > p': {
     marginBottom: '1em',

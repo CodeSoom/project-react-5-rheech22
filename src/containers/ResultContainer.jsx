@@ -21,7 +21,7 @@ const Container = styled.article({
   alignItems: 'center',
   position: 'relative',
   paddingTop: '10em',
-  width: '100vw',
+  width: '100%',
   height: 'fit-content',
   backgroundImage: 'linear-gradient(to left top, #d16ba5, #af6dad, #8c6eac, #6b6ea3, #516a94, #517496, #577e96, #628695, #80a1aa, #a0bcbf, #c3d8d7, #e6f4f1)',
   color: '#3F627A',

@@ -1,10 +1,19 @@
+import styled from '@emotion/styled';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import Calculator from '../components/Calculator';
 
-import { changeBodyStats, calculateCalories, setCalculatorMessage } from '../slice';
+import {
+  changeBodyStats,
+  calculateCalories,
+} from '../slice';
 
 import { get } from '../utils';
+
+const Container = styled.section({
+  width: '100%',
+});
 
 export default function CalculatorContainer() {
   const dispatch = useDispatch();
@@ -18,12 +27,6 @@ export default function CalculatorContainer() {
     goalNumber,
   } = useSelector(get('bodyStats'));
 
-  const {
-    bmr,
-    tdee,
-    result,
-  } = useSelector(get('calories'));
-
   const calculatorMessage = useSelector(get('calculatorMessage'));
 
   const handleChangeBodyStats = ({ name, value }) => {
@@ -31,16 +34,11 @@ export default function CalculatorContainer() {
   };
 
   const handleClickButton = () => {
-    if (!bmr || !tdee || !result) {
-      dispatch(setCalculatorMessage(
-        '모든 항목을 입력해주세요',
-      ));
-    }
     dispatch(calculateCalories());
   };
 
   return (
-    <article>
+    <Container>
       <Calculator
         gender={gender}
         age={age}
@@ -52,6 +50,6 @@ export default function CalculatorContainer() {
         onChange={handleChangeBodyStats}
         onClick={handleClickButton}
       />
-    </article>
+    </Container>
   );
 }

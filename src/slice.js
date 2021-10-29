@@ -73,6 +73,9 @@ export function calculateCalories() {
     } = getState();
 
     if (!age || !height || !weight || !gender || !goalNumber) {
+      dispatch(setCalculatorMessage(
+        '모든 항목을 입력해주세요',
+      ));
       return;
     }
 
