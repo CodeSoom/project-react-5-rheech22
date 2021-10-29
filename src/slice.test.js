@@ -186,7 +186,10 @@ describe('actions', () => {
 
         const actions = store.getActions();
 
-        expect(actions).toEqual([]);
+        expect(actions[0]).toEqual({
+          type: 'application/setCalculatorMessage',
+          payload: '모든 항목을 입력해주세요',
+        });
       });
     });
   });

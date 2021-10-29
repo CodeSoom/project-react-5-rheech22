@@ -15,7 +15,8 @@ const Container = styled.div({
 });
 
 export default function MacroChart({
-  totalValue, value, color, text,
+  totalValue, value,
+  color, text,
 }) {
   return (
     <Container>

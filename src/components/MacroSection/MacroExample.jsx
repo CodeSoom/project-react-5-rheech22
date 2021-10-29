@@ -38,7 +38,7 @@ const Container = styled.div({
     fontSize: '1em',
     fontWeight: '400',
     textAlign: 'justify',
-    lineHeight: '3em',
+    lineHeight: '2em',
     backgroundColor: '#384955',
   },
 

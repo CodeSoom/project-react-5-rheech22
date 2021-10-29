@@ -7,7 +7,10 @@ const Container = styled.div({
   justifyContent: 'space-between',
 });
 
-export default function MacroCharts({ carbs, protein, fats }) {
+export default function MacroCharts({
+  carbs, protein,
+  fats,
+}) {
   const totalValue = carbs + protein + fats;
 
   return (
