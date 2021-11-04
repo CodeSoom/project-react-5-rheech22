@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 
 import { useSelector } from 'react-redux';
 
+import { MemoryRouter } from 'react-router';
 import ResultContainer from './ResultContainer';
 
 import { getActivityDescription } from '../utils';
@@ -37,7 +38,9 @@ describe('ResultContainer', () => {
 
     it('doesn\'t render result', () => {
       const { container } = render((
-        <ResultContainer />
+        <MemoryRouter>
+          <ResultContainer />
+        </MemoryRouter>
       ));
 
       expect(container).not.toHaveTextContent('BMR');
@@ -55,7 +58,9 @@ describe('ResultContainer', () => {
 
     it('renders calories', () => {
       const { container } = render((
-        <ResultContainer />
+        <MemoryRouter>
+          <ResultContainer />
+        </MemoryRouter>
       ));
 
       expect(container).toHaveTextContent('1000');
@@ -65,7 +70,9 @@ describe('ResultContainer', () => {
 
     it('renders macro examples', () => {
       const { container } = render((
-        <ResultContainer />
+        <MemoryRouter>
+          <ResultContainer />
+        </MemoryRouter>
       ));
 
       expect(container).toHaveTextContent('Macro Examples');

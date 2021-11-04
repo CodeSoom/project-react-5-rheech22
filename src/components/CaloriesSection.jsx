@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
 
+import { Link } from 'react-router-dom';
+
 import Calories from './CaloriesSection/Calories';
 
 const Container = styled.section({
   display: 'grid',
-  gridTemplateAreas: '"h h h" "c1 c2 c3" "p p p"',
+  gridTemplateAreas: '"h h h" "c1 c2 c3" "a a a"',
   marginBottom: '1em',
   '& h1': {
     gridArea: 'h',
@@ -37,20 +39,25 @@ const Container = styled.section({
     backgroundColor: '#FFECCC',
     transform: 'translate(-3em)',
   },
-  '& > p': {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gridArea: 'p',
-    height: '5em',
+  '& a': {
+    fontSize: '1.5em',
+    gridArea: 'a',
+    padding: '2em',
+    width: '100%',
     textAlign: 'center',
-    color: 'white',
     textDecoration: 'underline',
+    fontWeight: '400',
+    '&:visited': {
+      color: 'black',
+    },
   },
   '@media (max-width: 600px)': {
-    gridTemplateAreas: '"h" "c1" "c2" "c3" "p"',
+    gridTemplateAreas: '"h" "c1" "c2" "c3" "a"',
     '& h1': {
       fontSize: '2em',
+    },
+    '& div': {
+      justifySelf: 'center',
     },
     '& >div:first-of-type': {
       transform: 'none',
@@ -61,8 +68,9 @@ const Container = styled.section({
     '& >div:nth-of-type(3)': {
       transform: 'translate(0, -6em)',
     },
-    '& > p': {
+    '& > a': {
       marginTop: '-5em',
+      padding: 'none',
     },
   },
 });
@@ -86,7 +94,7 @@ export default function CaloriesSection({
         name="TDEE"
         value={tdee}
       />
-      <p>obtained by Mifflin St Jeor equation</p>
+      <Link to="/diary">Click to set your own recipes</Link>
     </Container>
   );
 }
