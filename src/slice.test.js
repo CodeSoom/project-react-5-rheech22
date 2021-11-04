@@ -5,8 +5,10 @@ import configureStore from 'redux-mock-store';
 import reducer, {
   calculateCalories,
   changeBodyStats,
+  setCalculatorMessage,
   setCalories,
 } from './slice';
+
 import { getActivityDescription, getCalories, getGoalNumber } from './utils';
 
 const middlewares = [thunk];
@@ -23,6 +25,7 @@ describe('reducer', () => {
       activity: given.activity,
       goalNumber: null,
     },
+    calculatorMessage: '',
     calories: {
       bmr: null,
       tdee: null,
@@ -112,6 +115,17 @@ describe('reducer', () => {
       );
 
       expect(state.calories).toEqual(newValue);
+    });
+  });
+
+  describe('setCalculatorMessage', () => {
+    it('changes message', () => {
+      const state = reducer(
+        given.previousState,
+        setCalculatorMessage('메세지입니다.'),
+      );
+
+      expect(state.calculatorMessage).toBe('메세지입니다.');
     });
   });
 });

@@ -24,6 +24,4 @@ const caloriesInfo = [
   },
 ];
 
-// (모든 수치는 Mifflin St. Jeor에 의해 수정된 Harris-Benedict 방정식에 기반하고 있습니다)
-
 export default caloriesInfo;
