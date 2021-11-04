@@ -2,6 +2,8 @@ import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { MemoryRouter } from 'react-router';
+
 import HomePage from './HomePage';
 
 import { getActivityDescription } from '../utils';
@@ -40,14 +42,18 @@ describe('HomePage', () => {
 
   it('renders page title', () => {
     const { container } = render((
-      <HomePage />
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
     ));
     expect(container).toHaveTextContent('CalCal');
   });
 
   it('renders inputs', () => {
     const { queryByLabelText, getByText } = render((
-      <HomePage />
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
     ));
 
     expect(getByText('남')).not.toBeNull();
@@ -60,7 +66,9 @@ describe('HomePage', () => {
 
   it('renders calories', () => {
     const { container } = render((
-      <HomePage />
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
     ));
 
     expect(container).toHaveTextContent('1000');
