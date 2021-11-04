@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
 
-import Diary from './Diary';
+import DiaryForm from './DiaryForm';
 
-describe('Diary', () => {
+describe('DiaryForm', () => {
   it('renders input with calories', () => {
     const { getByLabelText } = render((
-      <Diary calories="2000" />
+      <DiaryForm calories="2000" />
     ));
 
     expect(getByLabelText('칼로리')).not.toBeNull();
@@ -13,7 +13,7 @@ describe('Diary', () => {
   });
   it('renders macro options', () => {
     const { getByLabelText } = render((
-      <Diary calories="2000" />
+      <DiaryForm calories="2000" />
     ));
 
     expect(getByLabelText('비율')).not.toBeNull();

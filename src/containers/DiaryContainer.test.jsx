@@ -22,12 +22,4 @@ describe('DiaryContainer', () => {
 
     expect(container).toHaveTextContent('식단 페이지');
   });
-
-  it('renders personal calories', () => {
-    const { container } = render((
-      <DiaryContainer />
-    ));
-
-    expect(container).toHaveTextContent('2000');
-  });
 });
