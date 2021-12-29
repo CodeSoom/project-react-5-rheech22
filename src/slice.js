@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getCalories, getActivityDescription } from './utils';
+import { getCalories, getActivityDescription, getDiaryMacro } from './utils';
 
 const { actions, reducer } = createSlice({
   name: 'application',
@@ -21,6 +21,12 @@ const { actions, reducer } = createSlice({
       bmr: 1500,
       tdee: 2000,
       result: 2300,
+    },
+    diaryValues: {
+      calories: null,
+      carbs: null,
+      proteins: null,
+      fats: null,
     },
   },
   reducers: {
@@ -50,6 +56,26 @@ const { actions, reducer } = createSlice({
         calculatorMessage: text,
       };
     },
+    setDiaryCalories(state, { payload: value }) {
+      return {
+        ...state,
+        diaryValues: {
+          ...state.diaryValues,
+          calories: value,
+        },
+      };
+    },
+    setDiaryMacro(state, { payload: { carbs, proteins, fats } }) {
+      return {
+        ...state,
+        diaryValues: {
+          ...state.diaryValues,
+          carbs,
+          proteins,
+          fats,
+        },
+      };
+    },
   },
 });
 
@@ -57,6 +83,8 @@ export const {
   changeBodyStats,
   setCalories,
   setCalculatorMessage,
+  setDiaryCalories,
+  setDiaryMacro,
 } = actions;
 
 export function calculateCalories() {
@@ -86,6 +114,26 @@ export function calculateCalories() {
     });
 
     dispatch(setCalories(calories));
+  };
+}
+
+export function calculateMacro(value) {
+  return async (dispatch, getState) => {
+    const {
+      diaryValues: { calories },
+    } = getState();
+
+    // if (!value) {
+    //   dispatch(setDiaryMacro({
+    //     carbs: null,
+    //     proteins: null,
+    //     fats: null,
+    //   }));
+    // }
+
+    const Macros = getDiaryMacro({ calories, value });
+
+    dispatch(setDiaryMacro(Macros));
   };
 }
 

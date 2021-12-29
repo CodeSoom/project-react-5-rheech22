@@ -37,6 +37,12 @@ describe('App', () => {
         tdee: 1500,
         result: 2000,
       },
+      diaryValues: {
+        calories: 2000,
+        carbs: null,
+        proteins: null,
+        fats: null,
+      },
     }));
   });
 
