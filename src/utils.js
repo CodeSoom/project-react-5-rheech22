@@ -78,3 +78,15 @@ export function getMacros({ name, value }) {
   };
   return macroFunctions[name](value);
 }
+
+export function getDiaryMacro({ calories, value }) {
+  const c = parseInt(value[0], 10);
+  const p = parseInt(value[1], 10);
+  const f = parseInt(value[2], 10);
+
+  const carbs = Math.round((calories * 0.1 * c) / 4);
+  const proteins = Math.round((calories * 0.1 * p) / 4);
+  const fats = Math.round((calories * 0.1 * f) / 9);
+
+  return { carbs, proteins, fats };
+}

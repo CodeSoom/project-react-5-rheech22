@@ -31,6 +31,12 @@ describe('reducer', () => {
       tdee: null,
       result: null,
     },
+    diaryValues: {
+      calories: null,
+      carbs: null,
+      proteins: null,
+      fats: null,
+    },
   }));
 
   describe('changeBodyStats', () => {

@@ -1,16 +1,28 @@
 import { render } from '@testing-library/react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import DiaryPage from './DiaryPage';
 
 jest.mock('react-redux');
 
 describe('DiaryPage', () => {
+  const dispatch = jest.fn();
+
   beforeEach(() => {
+    dispatch.mockClear();
+
+    useDispatch.mockImplementation(() => dispatch);
+
     useSelector.mockImplementation((selector) => selector({
       calories: {
         result: 2000,
+      },
+      diaryValues: {
+        calories: 2000,
+        carbs: null,
+        proteins: null,
+        fats: null,
       },
     }));
   });
