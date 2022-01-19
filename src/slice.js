@@ -18,9 +18,9 @@ const { actions, reducer } = createSlice({
     },
     calculatorMessage: '',
     calories: {
-      bmr: 1500,
-      tdee: 2000,
-      result: 2300,
+      bmr: null,
+      tdee: null,
+      result: null,
     },
     diaryValues: {
       calories: null,
